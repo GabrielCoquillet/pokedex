@@ -37,7 +37,7 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="186" y="216" name="pokemon">
+</datatypes><table x="321" y="243" name="pokemon">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -51,7 +51,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1333" y="188" name="region">
+<table x="977" y="340" name="region">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -65,7 +65,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1337" y="358" name="type">
+<table x="970" y="479" name="type">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -79,7 +79,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="802" y="52" name="famille">
+<table x="700" y="37" name="famille">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -95,11 +95,19 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="pokemon" row="id" />
 </row>
+<row name="id_pokemon_ex" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="pokemon" row="id" />
+</row>
+<row name="id_pokemon_gigamax" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="pokemon" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="982" y="250" name="link_region">
+<table x="723" y="299" name="link_region">
 <row name="id_pokemon" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="pokemon" row="id" />
@@ -111,7 +119,7 @@
 <key type="PRIMARY" name="">
 </key>
 </table>
-<table x="981" y="352" name="link_type">
+<table x="677" y="439" name="link_type">
 <row name="id_type" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="type" row="id" />
