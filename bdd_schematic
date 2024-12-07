@@ -47,11 +47,14 @@
 <row name="path_to_image" null="1" autoincrement="0">
 <datatype>VARCHAR(100)</datatype>
 <default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="977" y="340" name="region">
+<table x="972" y="291" name="region">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -65,7 +68,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="970" y="479" name="type">
+<table x="982" y="421" name="type">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -79,7 +82,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="700" y="37" name="famille">
+<table x="1002" y="31" name="famille">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
