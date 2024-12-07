@@ -41,10 +41,6 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="id_type" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="type" row="id" />
-</row>
 <row name="nom" null="1" autoincrement="0">
 <datatype>VARCHAR(15)</datatype>
 <default>NULL</default></row>
@@ -55,7 +51,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="1340" y="174" name="region">
+<table x="1333" y="188" name="region">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -69,7 +65,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="801" y="402" name="type">
+<table x="1337" y="358" name="type">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -83,7 +79,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="602" y="16" name="famille">
+<table x="802" y="52" name="famille">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -103,7 +99,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="974" y="270" name="link_region_pokemon">
+<table x="982" y="250" name="link_region">
 <row name="id_pokemon" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="pokemon" row="id" />
@@ -111,6 +107,18 @@
 <row name="id_region" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="region" row="id" />
+</row>
+<key type="PRIMARY" name="">
+</key>
+</table>
+<table x="981" y="352" name="link_type">
+<row name="id_type" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="type" row="id" />
+</row>
+<row name="id_pokemon" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="pokemon" row="id" />
 </row>
 <key type="PRIMARY" name="">
 </key>
