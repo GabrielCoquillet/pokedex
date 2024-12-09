@@ -50,6 +50,31 @@
 <row name="description" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
+<row name="sexe" null="1" autoincrement="0">
+<datatype>INT(1)</datatype>
+<default>NULL</default></row>
+<row name="id_categorie" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="categorie" row="id" />
+</row>
+<row name="taille" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="poids" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="pv" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="attack" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="defense" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="vitesse" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -68,7 +93,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="802" y="451" name="type">
+<table x="949" y="452" name="type">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -127,7 +152,7 @@
 <part>id_region</part>
 </key>
 </table>
-<table x="602" y="451" name="link_type">
+<table x="652" y="402" name="link_type">
 <row name="id_type" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="type" row="id" />
@@ -141,7 +166,7 @@
 <part>id_pokemon</part>
 </key>
 </table>
-<table x="353" y="52" name="generation">
+<table x="351" y="51" name="generation">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -164,6 +189,34 @@
 <key type="PRIMARY" name="">
 <part>id_generation</part>
 <part>id_pokemon</part>
+</key>
+</table>
+<table x="652" y="501" name="link_faiblesse">
+<row name="id_pokemon" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="pokemon" row="id" />
+</row>
+<row name="id_type" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="type" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_pokemon</part>
+<part>id_type</part>
+</key>
+</table>
+<table x="93" y="405" name="categorie">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="nom" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
 </key>
 </table>
 </sql>
