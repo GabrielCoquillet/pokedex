@@ -130,10 +130,6 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="pokemon" row="id" />
 </row>
-<row name="id_pokemon_gigamax" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="pokemon" row="id" />
-</row>
 <row name="description" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
