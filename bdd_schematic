@@ -38,7 +38,7 @@
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
 </datatypes><table x="361" y="245" name="pokemon">
-<row name="id" null="1" autoincrement="1">
+<row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="nom" null="1" autoincrement="0">
@@ -75,12 +75,15 @@
 <row name="vitesse" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="path_to_image_shiny" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="952" y="301" name="region">
-<row name="id" null="1" autoincrement="1">
+<table x="954" y="300" name="region">
+<row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="nom" null="1" autoincrement="0">
@@ -94,7 +97,7 @@
 </key>
 </table>
 <table x="949" y="452" name="type">
-<row name="id" null="1" autoincrement="1">
+<row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="nom" null="1" autoincrement="0">
@@ -108,7 +111,7 @@
 </key>
 </table>
 <table x="901" y="10" name="famille">
-<row name="id" null="1" autoincrement="1">
+<row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="id_pokemon_base" null="1" autoincrement="0">
@@ -139,11 +142,11 @@
 </key>
 </table>
 <table x="701" y="301" name="link_region">
-<row name="id_pokemon" null="1" autoincrement="0">
+<row name="id_pokemon" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="pokemon" row="id" />
 </row>
-<row name="id_region" null="1" autoincrement="0">
+<row name="id_region" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="region" row="id" />
 </row>
@@ -153,11 +156,11 @@
 </key>
 </table>
 <table x="652" y="402" name="link_type">
-<row name="id_type" null="1" autoincrement="0">
+<row name="id_type" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="type" row="id" />
 </row>
-<row name="id_pokemon" null="1" autoincrement="0">
+<row name="id_pokemon" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="pokemon" row="id" />
 </row>
@@ -167,7 +170,7 @@
 </key>
 </table>
 <table x="351" y="51" name="generation">
-<row name="id" null="1" autoincrement="1">
+<row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="description" null="1" autoincrement="0">
@@ -178,11 +181,11 @@
 </key>
 </table>
 <table x="97" y="157" name="link_generation">
-<row name="id_generation" null="1" autoincrement="0">
+<row name="id_generation" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="generation" row="id" />
 </row>
-<row name="id_pokemon" null="1" autoincrement="0">
+<row name="id_pokemon" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="pokemon" row="id" />
 </row>
@@ -192,11 +195,11 @@
 </key>
 </table>
 <table x="652" y="501" name="link_faiblesse">
-<row name="id_pokemon" null="1" autoincrement="0">
+<row name="id_pokemon" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="pokemon" row="id" />
 </row>
-<row name="id_type" null="1" autoincrement="0">
+<row name="id_type" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="type" row="id" />
 </row>
@@ -206,7 +209,7 @@
 </key>
 </table>
 <table x="93" y="405" name="categorie">
-<row name="id" null="1" autoincrement="1">
+<row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="nom" null="1" autoincrement="0">
