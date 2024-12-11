@@ -27,7 +27,7 @@ CREATE TABLE `pokemon` (
   `vitesse` INTEGER NULL DEFAULT NULL,
   `path_to_image_shiny` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+)ENGINE=INNODB;
 
 -- ---
 -- Table 'region'
@@ -41,7 +41,7 @@ CREATE TABLE `region` (
   `nom` VARCHAR(15) NULL DEFAULT NULL,
   `description` MEDIUMTEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+)ENGINE=INNODB;
 
 -- ---
 -- Table 'type'
@@ -55,7 +55,7 @@ CREATE TABLE `type` (
   `nom` VARCHAR(15) NULL DEFAULT NULL,
   `description` MEDIUMTEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+)ENGINE=INNODB;
 
 -- ---
 -- Table 'famille'
@@ -72,7 +72,7 @@ CREATE TABLE `famille` (
   `id_pokemon_ex` INTEGER NULL DEFAULT NULL,
   `description` MEDIUMTEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+)ENGINE=INNODB;
 
 -- ---
 -- Table 'link_region'
@@ -85,7 +85,7 @@ CREATE TABLE `link_region` (
   `id_pokemon` INTEGER NOT NULL DEFAULT NULL,
   `id_region` INTEGER NOT NULL DEFAULT NULL,
   PRIMARY KEY (`id_pokemon`, `id_region`)
-);
+)ENGINE=INNODB;
 
 -- ---
 -- Table 'link_type'
@@ -98,7 +98,7 @@ CREATE TABLE `link_type` (
   `id_type` INTEGER NOT NULL DEFAULT NULL,
   `id_pokemon` INTEGER NOT NULL DEFAULT NULL,
   PRIMARY KEY (`id_type`, `id_pokemon`)
-);
+)ENGINE=INNODB;
 
 -- ---
 -- Table 'generation'
@@ -111,7 +111,7 @@ CREATE TABLE `generation` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `description` MEDIUMTEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+)ENGINE=INNODB;
 
 -- ---
 -- Table 'link_generation'
@@ -124,7 +124,7 @@ CREATE TABLE `link_generation` (
   `id_generation` INTEGER NOT NULL DEFAULT NULL,
   `id_pokemon` INTEGER NOT NULL DEFAULT NULL,
   PRIMARY KEY (`id_generation`, `id_pokemon`)
-);
+)ENGINE=INNODB;
 
 -- ---
 -- Table 'link_faiblesse'
@@ -137,7 +137,7 @@ CREATE TABLE `link_faiblesse` (
   `id_pokemon` INTEGER NOT NULL DEFAULT NULL,
   `id_type` INTEGER NOT NULL DEFAULT NULL,
   PRIMARY KEY (`id_pokemon`, `id_type`)
-);
+)ENGINE=INNODB;
 
 -- ---
 -- Table 'categorie'
@@ -151,7 +151,7 @@ CREATE TABLE `categorie` (
   `nom` VARCHAR(15) NULL DEFAULT NULL,
   `description` MEDIUMTEXT NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-);
+)ENGINE=INNODB;
 
 -- ---
 -- Foreign Keys 
