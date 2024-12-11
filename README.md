@@ -1,3 +1,3 @@
 # pokedex
 php pokedex for school project
-[Site link][https://pokedex.gcoquillet.fr]
+[Site link](https://pokedex.gcoquillet.fr)
