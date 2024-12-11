@@ -11,7 +11,7 @@
 -- ---
 
 DROP TABLE IF EXISTS `pokemon`;
-
+		
 CREATE TABLE `pokemon` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(15) NULL DEFAULT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE `pokemon` (
   `attack` INTEGER NULL DEFAULT NULL,
   `defense` INTEGER NULL DEFAULT NULL,
   `vitesse` INTEGER NULL DEFAULT NULL,
-  `path_to_image_shiny` VARCHAR(100) NULL DEFAULT NULL,
+  `path_to_image_shiny` VARCHAR NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -82,8 +82,8 @@ CREATE TABLE `famille` (
 DROP TABLE IF EXISTS `link_region`;
 		
 CREATE TABLE `link_region` (
-  `id_pokemon` INTEGER NOT NULL,
-  `id_region` INTEGER NOT NULL,
+  `id_pokemon` INTEGER NOT NULL DEFAULT NULL,
+  `id_region` INTEGER NOT NULL DEFAULT NULL,
   PRIMARY KEY (`id_pokemon`, `id_region`)
 );
 
@@ -95,8 +95,8 @@ CREATE TABLE `link_region` (
 DROP TABLE IF EXISTS `link_type`;
 		
 CREATE TABLE `link_type` (
-  `id_type` INTEGER NOT NULL,
-  `id_pokemon` INTEGER NOT NULL,
+  `id_type` INTEGER NOT NULL DEFAULT NULL,
+  `id_pokemon` INTEGER NOT NULL DEFAULT NULL,
   PRIMARY KEY (`id_type`, `id_pokemon`)
 );
 
@@ -121,8 +121,8 @@ CREATE TABLE `generation` (
 DROP TABLE IF EXISTS `link_generation`;
 		
 CREATE TABLE `link_generation` (
-  `id_generation` INTEGER NOT NULL,
-  `id_pokemon` INTEGER NOT NULL,
+  `id_generation` INTEGER NOT NULL DEFAULT NULL,
+  `id_pokemon` INTEGER NOT NULL DEFAULT NULL,
   PRIMARY KEY (`id_generation`, `id_pokemon`)
 );
 
@@ -134,8 +134,8 @@ CREATE TABLE `link_generation` (
 DROP TABLE IF EXISTS `link_faiblesse`;
 		
 CREATE TABLE `link_faiblesse` (
-  `id_pokemon` INTEGER NOT NULL,
-  `id_type` INTEGER NOT NULL,
+  `id_pokemon` INTEGER NOT NULL DEFAULT NULL,
+  `id_type` INTEGER NOT NULL DEFAULT NULL,
   PRIMARY KEY (`id_pokemon`, `id_type`)
 );
 
@@ -157,19 +157,19 @@ CREATE TABLE `categorie` (
 -- Foreign Keys 
 -- ---
 
-ALTER TABLE `pokemon` ADD FOREIGN KEY (id_categorie) REFERENCES `categorie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_base) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_level_2) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_level_3) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_ex) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `link_region` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `link_region` ADD FOREIGN KEY (id_region) REFERENCES `region` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `link_type` ADD FOREIGN KEY (id_type) REFERENCES `type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `link_type` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `link_generation` ADD FOREIGN KEY (id_generation) REFERENCES `generation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `link_generation` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `link_faiblesse` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-ALTER TABLE `link_faiblesse` ADD FOREIGN KEY (id_type) REFERENCES `type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `pokemon` ADD FOREIGN KEY (id_categorie) REFERENCES `categorie` (`id`);
+ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_base) REFERENCES `pokemon` (`id`);
+ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_level_2) REFERENCES `pokemon` (`id`);
+ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_level_3) REFERENCES `pokemon` (`id`);
+ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_ex) REFERENCES `pokemon` (`id`);
+ALTER TABLE `link_region` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`);
+ALTER TABLE `link_region` ADD FOREIGN KEY (id_region) REFERENCES `region` (`id`);
+ALTER TABLE `link_type` ADD FOREIGN KEY (id_type) REFERENCES `type` (`id`);
+ALTER TABLE `link_type` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`);
+ALTER TABLE `link_generation` ADD FOREIGN KEY (id_generation) REFERENCES `generation` (`id`);
+ALTER TABLE `link_generation` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`);
+ALTER TABLE `link_faiblesse` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`);
+ALTER TABLE `link_faiblesse` ADD FOREIGN KEY (id_type) REFERENCES `type` (`id`);
 
 -- ---
 -- Table Properties
@@ -196,8 +196,8 @@ ALTER TABLE `link_faiblesse` ADD FOREIGN KEY (id_type) REFERENCES `type` (`id`) 
 -- ('','','');
 -- INSERT INTO `type` (`id`,`nom`,`description`) VALUES
 -- ('','','');
--- INSERT INTO `famille` (`id`,`id_pokemon_base`,`id_pokemon_level_2`,`id_pokemon_level_3`,`id_pokemon_ex`,`id_pokemon_gigamax`,`description`) VALUES
--- ('','','','','','','');
+-- INSERT INTO `famille` (`id`,`id_pokemon_base`,`id_pokemon_level_2`,`id_pokemon_level_3`,`id_pokemon_ex`,`description`) VALUES
+-- ('','','','','','');
 -- INSERT INTO `link_region` (`id_pokemon`,`id_region`) VALUES
 -- ('','');
 -- INSERT INTO `link_type` (`id_type`,`id_pokemon`) VALUES
