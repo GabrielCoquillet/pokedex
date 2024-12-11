@@ -121,7 +121,7 @@ CREATE TABLE `generation` (
 DROP TABLE IF EXISTS `link_generation`;
 		
 CREATE TABLE `link_generation` (
-  `id_generation` INTEGER NOT NULL DEFAULT NULL,
+  `id_generation` INTEGER NOT NULL,
   `id_pokemon` INTEGER NOT NULL,
   PRIMARY KEY (`id_generation`, `id_pokemon`)
 )ENGINE=INNODB;
