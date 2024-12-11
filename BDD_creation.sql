@@ -82,8 +82,8 @@ CREATE TABLE `famille` (
 DROP TABLE IF EXISTS `link_region`;
 		
 CREATE TABLE `link_region` (
-  `id_pokemon` INTEGER NOT NULL DEFAULT NULL,
-  `id_region` INTEGER NOT NULL DEFAULT NULL,
+  `id_pokemon` INTEGER NOT NULL,
+  `id_region` INTEGER NOT NULL,
   PRIMARY KEY (`id_pokemon`, `id_region`)
 )ENGINE=INNODB;
 
@@ -95,8 +95,8 @@ CREATE TABLE `link_region` (
 DROP TABLE IF EXISTS `link_type`;
 		
 CREATE TABLE `link_type` (
-  `id_type` INTEGER NOT NULL DEFAULT NULL,
-  `id_pokemon` INTEGER NOT NULL DEFAULT NULL,
+  `id_type` INTEGER NOT NULL,
+  `id_pokemon` INTEGER NOT NULL,
   PRIMARY KEY (`id_type`, `id_pokemon`)
 )ENGINE=INNODB;
 
@@ -122,7 +122,7 @@ DROP TABLE IF EXISTS `link_generation`;
 		
 CREATE TABLE `link_generation` (
   `id_generation` INTEGER NOT NULL DEFAULT NULL,
-  `id_pokemon` INTEGER NOT NULL DEFAULT NULL,
+  `id_pokemon` INTEGER NOT NULL,
   PRIMARY KEY (`id_generation`, `id_pokemon`)
 )ENGINE=INNODB;
 
@@ -134,8 +134,8 @@ CREATE TABLE `link_generation` (
 DROP TABLE IF EXISTS `link_faiblesse`;
 		
 CREATE TABLE `link_faiblesse` (
-  `id_pokemon` INTEGER NOT NULL DEFAULT NULL,
-  `id_type` INTEGER NOT NULL DEFAULT NULL,
+  `id_pokemon` INTEGER NOT NULL,
+  `id_type` INTEGER NOT NULL,
   PRIMARY KEY (`id_pokemon`, `id_type`)
 )ENGINE=INNODB;
 
