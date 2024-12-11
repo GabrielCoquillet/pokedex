@@ -25,7 +25,7 @@ CREATE TABLE `pokemon` (
   `attack` INTEGER NULL DEFAULT NULL,
   `defense` INTEGER NULL DEFAULT NULL,
   `vitesse` INTEGER NULL DEFAULT NULL,
-  `path_to_image_shiny` VARCHAR NULL DEFAULT NULL,
+  `path_to_image_shiny` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
