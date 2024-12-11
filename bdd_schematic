@@ -179,7 +179,7 @@
 <table x="97" y="157" name="link_generation">
 <row name="id_generation" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
-<default>NULL</default><relation table="generation" row="id" />
+<relation table="generation" row="id" />
 </row>
 <row name="id_pokemon" null="0" autoincrement="0">
 <datatype>INTEGER</datatype>
