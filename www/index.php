@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pokedex</title>
-    <link rel="icon" type="image/png" href="images/book.png" />
+    <link rel="icon" type="image/png" href="" />
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -41,11 +41,9 @@
         // Module non specifié ou invalide ? On affiche la page d'accueil !
     }
     else {
-        echo "<h1>Hello World</h1>";
         include "lister.php";
     }
     ?>
-</div>
 </div>
 
 <!-- Pied de page -->
