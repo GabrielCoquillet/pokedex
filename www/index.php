@@ -48,10 +48,7 @@
 
 <!-- Pied de page -->
 <div id="footer">
-    Jallet<br/>
-    Kishokumar<br/>
-    Coquillet<br/>
-    Décembre 2024
+    Jallet Kishokumar Coquillet Décembre 2024
 </div>
 </body>
 </html>
