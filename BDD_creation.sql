@@ -16,11 +16,9 @@ CREATE TABLE `pokemon` (
   `id` INTEGER NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(15) NULL DEFAULT NULL,
   `path_to_image` VARCHAR(100) NULL DEFAULT NULL,
-  `description` MEDIUMTEXT NULL DEFAULT NULL,
-  `sexe` INT(1) NULL DEFAULT NULL,
   `id_categorie` INTEGER NULL DEFAULT NULL,
-  `taille` INTEGER NULL DEFAULT NULL,
-  `poids` INTEGER NULL DEFAULT NULL,
+  `taille` VARCHAR(15) NULL DEFAULT NULL,
+  `poids` VARCHAR(15) NULL DEFAULT NULL,
   `pv` INTEGER NULL DEFAULT NULL,
   `attack` INTEGER NULL DEFAULT NULL,
   `defense` INTEGER NULL DEFAULT NULL,
@@ -190,8 +188,8 @@ ALTER TABLE `link_faiblesse` ADD FOREIGN KEY (id_type) REFERENCES `type` (`id`);
 -- Test Data
 -- ---
 
--- INSERT INTO `pokemon` (`id`,`nom`,`path_to_image`,`description`,`sexe`,`id_categorie`,`taille`,`poids`,`pv`,`attack`,`defense`,`vitesse`,`path_to_image_shiny`) VALUES
--- ('','','','','','','','','','','','','');
+-- INSERT INTO `pokemon` (`id`,`nom`,`path_to_image`,`id_categorie`,`taille`,`poids`,`pv`,`attack`,`defense`,`vitesse`,`path_to_image_shiny`) VALUES
+-- ('','','','','','','','','','','');
 -- INSERT INTO `region` (`id`,`nom`,`description`) VALUES
 -- ('','','');
 -- INSERT INTO `type` (`id`,`nom`,`description`) VALUES
