@@ -6,6 +6,13 @@
 -- SET FOREIGN_KEY_CHECKS=0;
 
 -- ---
+-- Creation BDD
+-- ---
+
+CREATE DATABASE IF NOT EXISTS pokedex;
+USE pokedex;
+
+-- ---
 -- Table 'pokemon'
 -- 
 -- ---
