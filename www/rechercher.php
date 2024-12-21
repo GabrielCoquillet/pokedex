@@ -15,7 +15,7 @@
     </form>
 </div>
 <?php
-debug("Contenu de POST",$_POST);
+//debug("Contenu de POST",$_POST);
 if(isset($_POST) && !empty($_POST)){
     $requete = 'SELECT * FROM pokemon WHERE nom LIKE "%'.$_POST['titre'].'%" ORDER BY nom ASC';
     //debug("requete",$requete);
