@@ -17,22 +17,19 @@
 <?php
 debug("Contenu de POST",$_POST);
 if(isset($_POST) && !empty($_POST)){
-    $requete = 'SELECT * FROM bd WHERE titre LIKE "%'.$_POST['titre'].'%" ORDER BY titre ASC';
+    $requete = 'SELECT * FROM pokemon WHERE nom LIKE "%'.$_POST['titre'].'%" ORDER BY nom ASC';
     debug("requete",$requete);
     $reponse = $bdd->query($requete);
 
     while ($donnees = $reponse->fetch()){
-        //debug( $donnees);
-        echo '<h1>'.$donnees['titre'].'</h1>';
-        if ($donnees['image_couverture']!='') echo '<img src="images/photos_BD/'.$donnees['image_couverture'].'" width="150px"/><br/>';
-        // on affiche les résultats
+        debug( $donnees);
+        echo '<h1>'.$donnees['nom'].'</h1>';
+        $path = $donnees['path_to_image'];
+        echo '<img src="'.$path.'" width="150px"><br/>';
         echo 'Référencé sous le n° : <strong>'.$donnees['id'].'</strong><br/>';
-        echo 'Genre : <strong>'.$donnees['genre'].'</strong><br/>';
-        echo 'Année : <strong>'.$donnees['annee'].'</strong><br/>';
-        echo 'Numéro du tome : <strong>'.$donnees['numero_tome'].'</strong><br/>';
-        echo 'Nombre de pages : <strong>'.$donnees['nombre_pages'].'</strong><br/>';
-        if ($donnees['lien_fiche']!='') echo 'Lien fiche : <strong><a href='.$donnees['lien_fiche'].' target="_blank">'.$donnees['lien_fiche'].'</a></strong><br/>';
-        echo 'Résumé : <strong>'.$donnees['resume'].'</strong><br/><br/><br/>';
+        echo 'taille : <strong>'.$donnees['taille'].'</strong><br/>';
+        echo 'poids : <strong>'.$donnees['poids'].'</strong><br/>';
+        echo 'pv : <strong>'.$donnees['pv'].'</strong><br/><br/><br/>';
         echo '<hr/>';
     };
 }

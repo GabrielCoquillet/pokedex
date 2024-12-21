@@ -6,8 +6,6 @@ while ($donnees = $reponse->fetch()){
     $path = $donnees['path_to_image'];
     echo '<img src="'.$path.'" width="150px"><br/>';
     echo 'Référencé sous le n° : <strong>'.$donnees['id'].'</strong><br/>';
-    echo 'description : <strong>'.$donnees['description'].'</strong><br/>';
-    echo 'sexe : <strong>'.$donnees['sexe'].'</strong><br/>';
     echo 'taille : <strong>'.$donnees['taille'].'</strong><br/>';
     echo 'poids : <strong>'.$donnees['poids'].'</strong><br/>';
     echo 'pv : <strong>'.$donnees['pv'].'</strong><br/><br/><br/>';
