@@ -18,11 +18,11 @@
 debug("Contenu de POST",$_POST);
 if(isset($_POST) && !empty($_POST)){
     $requete = 'SELECT * FROM pokemon WHERE nom LIKE "%'.$_POST['titre'].'%" ORDER BY nom ASC';
-    debug("requete",$requete);
+    //debug("requete",$requete);
     $reponse = $bdd->query($requete);
 
     while ($donnees = $reponse->fetch()){
-        debug( $donnees);
+        //debug( $donnees);
         echo '<h1>'.$donnees['nom'].'</h1>';
         $path = $donnees['path_to_image'];
         echo '<img src="'.$path.'" width="150px"><br/>';
