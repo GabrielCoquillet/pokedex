@@ -5,7 +5,7 @@
         <fieldset>
             <legend>Critères de recherche</legend>
             <p>
-                <select name="critere" id="critere">
+                <select name="critere" id="critere" >
                     <option value="contient">Contient</option>
                     <option value="commence">Commence par</option>
                     <option value="finit">Finit par</option>
@@ -15,8 +15,8 @@
                     <option value="type">De type</option>
                     <option value="faiblesse">A pour faiblesse le type</option>
                 </select>
-                <label for="reponse">Le nom contient : </label>
-                <input type="text" name="reponse" id="reponse" value="<?php echo $_POST['titre']?>" \>
+                <label for="reponse"> : </label>
+                <input type="text" name="reponse" id="reponse" value="<?php echo $_POST['titre']?>"\>
             </p>
         </fieldset>
         <p class="center"><input type="submit" value="Lister"/> <input type="reset" value="Effacer les champs"/></p>
@@ -33,9 +33,6 @@ if(isset($_POST) && !empty($_POST)){
     }
     elseif ($_POST['critere'] == 'commence') {
         $requete = 'SELECT * FROM pokemon WHERE nom LIKE "'.$_POST['reponse'].'%" ORDER BY nom ASC';
-    }
-    elseif ($_POST['critere'] == 'generation') {
-        $requete = 'SELECT * FROM pokemon WHERE generation='.$_POST['reponse'].' ORDER BY nom ASC';
     }
     elseif ($_POST['critere'] == 'id') {
         $requete = 'SELECT * FROM pokemon WHERE id ='.$_POST['reponse'].' ORDER BY nom ASC';
