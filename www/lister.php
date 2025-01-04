@@ -65,9 +65,15 @@ while ($donnees = $reponse->fetch()){
             $nom_region->bindValue(':id_region', $region['id_region']);
             $nom_region->execute();
             $region_nom = $nom_region->fetch();
-            echo $region_nom['nom'].' ';
+            echo $region_nom['nom'] . ' ';
         }
     }
+
+    //affichage de la génération d'apparition du pokémon
+    $gen = $bdd->prepare('SELECT id_generation FROM link_generation WHERE id_pokemon=:id_pokemon');
+    $gen->bindValue(':id_pokemon', $donnees['id']);
+    $gen->execute();
+    echo "Génération d'apparition du pokémon :<strong> génération ".$gen->fetch()[0]."</strong><br/>";
     echo '<hr/>';
 };
 
