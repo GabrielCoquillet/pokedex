@@ -179,4 +179,4 @@ def link_type(data):
 #link_type(data)
 #link_region(data)
 #link_faiblesse(data)
-link_generation(data)
+#link_generation(data)
