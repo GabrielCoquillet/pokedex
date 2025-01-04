@@ -139,7 +139,7 @@ def link_generation(data):
     for i in range(1,1026):
         with conn.cursor() as cursor:
             sql = "INSERT INTO link_generation(id_generation,id_pokemon) VALUES (%s, %s)"
-            cursor.execute(sql, (data[i]['generationq'], data[i]['pokedex_id']))
+            cursor.execute(sql, (data[i]['generation'], data[i]['pokedex_id']))
             conn.commit()
 
 
