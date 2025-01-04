@@ -12,7 +12,7 @@ s = set()
 for i in range(1,1026):
     response = requests.get(f"https://tyradex.app/api/v1/pokemon/{i}")
     data = response.json()
-    if data["category"] not in s:
+    if data["types"] not in s:
         s.add(data["types"][0]["name"])
 print(s)
 
