@@ -122,16 +122,48 @@ def famille(data):
                         conn.commit()
 
 def link_faiblesse(data):
-    pass
+    for i in range(1,1026):
+        for elt in data[i]['resistances']:
+            if elt['multiplier'] == 2:
+                with conn.cursor() as cursor:
+                    sql = "SELECT id FROM type WHERE nom=%s"
+                    cursor.execute(sql, (elt['name']))
+                    id_type = cursor.fetchone()[0]
+
+                with conn.cursor() as cursor:
+                    sql = "INSERT INTO link_faiblesse(id_pokemon,id_type) VALUES (%s, %s)"
+                    cursor.execute(sql, (data[i]['pokedex_id'], id_type))
+                    conn.commit()
 
 def link_generation(data):
     pass
 
 def link_region(data):
-    pass
+    for i in range(1, 1026):
+        if data[i]['formes'] is not None:
+            for elt in data[i]['formes']:
+                with conn.cursor() as cursor:
+                    sql = "SELECT id FROM region WHERE nom=%s"
+                    cursor.execute(sql, (elt['region']))
+                    id_region = cursor.fetchone()[0]
+
+                with conn.cursor() as cursor:
+                    sql = "INSERT INTO link_region(id_pokemon,id_region) VALUES (%s, %s)"
+                    cursor.execute(sql, (data[i]['pokedex_id'], id_region))
+                    conn.commit()
 
 def link_type(data):
-    pass
+    for i in range(1,1026):
+        for elt in data[i]['types']:
+            with conn.cursor() as cursor:
+                sql = "SELECT id FROM type WHERE nom=%s"
+                cursor.execute(sql, (elt['name']))
+                type_id = cursor.fetchone()[0]
+
+            with conn.cursor() as cursor:
+                sql = "INSERT INTO link_type(id_type, id_pokemon) VALUES (%s, %s)"
+                cursor.execute(sql, (type_id, data[i]['pokedex_id']))
+                conn.commit()
 
 #generation(data)
 #type(data)
@@ -139,3 +171,6 @@ def link_type(data):
 #pokemon(data)
 #region(data)
 #famille(data)
+#link_type(data)
+#link_region(data)
+link_faiblesse(data)
