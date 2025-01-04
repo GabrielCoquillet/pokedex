@@ -155,19 +155,19 @@ CREATE TABLE `categorie` (
 -- Foreign Keys 
 -- ---
 
-ALTER TABLE `pokemon` ADD FOREIGN KEY (id_categorie) REFERENCES `categorie` (`id`);
-ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_base) REFERENCES `pokemon` (`id`);
-ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_level_2) REFERENCES `pokemon` (`id`);
-ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_level_3) REFERENCES `pokemon` (`id`);
-ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_ex) REFERENCES `pokemon` (`id`);
-ALTER TABLE `link_region` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`);
-ALTER TABLE `link_region` ADD FOREIGN KEY (id_region) REFERENCES `region` (`id`);
-ALTER TABLE `link_type` ADD FOREIGN KEY (id_type) REFERENCES `type` (`id`);
-ALTER TABLE `link_type` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`);
-ALTER TABLE `link_generation` ADD FOREIGN KEY (id_generation) REFERENCES `generation` (`id`);
-ALTER TABLE `link_generation` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`);
-ALTER TABLE `link_faiblesse` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`);
-ALTER TABLE `link_faiblesse` ADD FOREIGN KEY (id_type) REFERENCES `type` (`id`);
+ALTER TABLE `pokemon` ADD FOREIGN KEY (id_categorie) REFERENCES `categorie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_base) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_level_2) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_level_3) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `famille` ADD FOREIGN KEY (id_pokemon_ex) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `link_region` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `link_region` ADD FOREIGN KEY (id_region) REFERENCES `region` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `link_type` ADD FOREIGN KEY (id_type) REFERENCES `type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `link_type` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `link_generation` ADD FOREIGN KEY (id_generation) REFERENCES `generation` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `link_generation` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `link_faiblesse` ADD FOREIGN KEY (id_pokemon) REFERENCES `pokemon` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `link_faiblesse` ADD FOREIGN KEY (id_type) REFERENCES `type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- ---
 -- Table Properties
