@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: https://sql.toad.cz/ -->
+<sql>
+<datatypes db="mysql">
+	<group label="Numeric" color="rgb(238,238,170)">
+		<type label="Integer" length="0" sql="INTEGER" quote=""/>
+	 	<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+	 	<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+	 	<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+	 	<type label="INT" length="0" sql="INT" quote=""/>
+		<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+		<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+	</group>
+
+	<group label="Character" color="rgb(255,200,200)">
+		<type label="Char" length="1" sql="CHAR" quote="'"/>
+		<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+		<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+		<type label="Binary" length="1" sql="BINARY" quote="'"/>
+		<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+		<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+	</group>
+
+	<group label="Date &amp; Time" color="rgb(200,255,200)">
+		<type label="Date" length="0" sql="DATE" quote="'"/>
+		<type label="Time" length="0" sql="TIME" quote="'"/>
+		<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+		<type label="Year" length="0" sql="YEAR" quote=""/>
+		<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+	</group>
+	
+	<group label="Miscellaneous" color="rgb(200,200,255)">
+		<type label="ENUM" length="1" sql="ENUM" quote=""/>
+		<type label="SET" length="1" sql="SET" quote=""/>
+		<type label="Bit" length="0" sql="bit" quote=""/>
+	</group>
+</datatypes><table x="361" y="245" name="pokemon">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="1" autoincrement="0">
+<datatype>VARCHAR(15)</datatype>
+<default>NULL</default></row>
+<row name="path_to_image" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<row name="sexe" null="1" autoincrement="0">
+<datatype>INT(1)</datatype>
+<default>NULL</default></row>
+<row name="id_categorie" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="categorie" row="id" />
+</row>
+<row name="taille" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="poids" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="pv" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="attack" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="defense" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="vitesse" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="path_to_image_shiny" null="1" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="954" y="300" name="region">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="1" autoincrement="0">
+<datatype>VARCHAR(15)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="949" y="452" name="type">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="1" autoincrement="0">
+<datatype>VARCHAR(15)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="901" y="10" name="famille">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="id_pokemon_base" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="pokemon" row="id" />
+</row>
+<row name="id_pokemon_level_2" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="pokemon" row="id" />
+</row>
+<row name="id_pokemon_level_3" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="pokemon" row="id" />
+</row>
+<row name="id_pokemon_ex" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="pokemon" row="id" />
+</row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="701" y="301" name="link_region">
+<row name="id_pokemon" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="pokemon" row="id" />
+</row>
+<row name="id_region" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="region" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_pokemon</part>
+<part>id_region</part>
+</key>
+</table>
+<table x="652" y="402" name="link_type">
+<row name="id_type" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="type" row="id" />
+</row>
+<row name="id_pokemon" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="pokemon" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_type</part>
+<part>id_pokemon</part>
+</key>
+</table>
+<table x="351" y="51" name="generation">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="97" y="157" name="link_generation">
+<row name="id_generation" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="generation" row="id" />
+</row>
+<row name="id_pokemon" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="pokemon" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_generation</part>
+<part>id_pokemon</part>
+</key>
+</table>
+<table x="652" y="501" name="link_faiblesse">
+<row name="id_pokemon" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="pokemon" row="id" />
+</row>
+<row name="id_type" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="type" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_pokemon</part>
+<part>id_type</part>
+</key>
+</table>
+<table x="93" y="405" name="categorie">
+<row name="id" null="0" autoincrement="1">
+<datatype>INTEGER</datatype>
+</row>
+<row name="nom" null="1" autoincrement="0">
+<datatype>VARCHAR(15)</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>
