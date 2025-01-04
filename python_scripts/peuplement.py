@@ -137,11 +137,10 @@ def link_faiblesse(data):
 
 def link_generation(data):
     for i in range(1,1026):
-        for j in range(data[i]['generation'], 10):
-            with conn.cursor() as cursor:
-                sql = "INSERT INTO link_generation(id_generation,id_pokemon) VALUES (%s, %s)"
-                cursor.execute(sql, (j, data[i]['pokedex_id']))
-                conn.commit()
+        with conn.cursor() as cursor:
+            sql = "INSERT INTO link_generation(id_generation,id_pokemon) VALUES (%s, %s)"
+            cursor.execute(sql, (data[i]['generationq'], data[i]['pokedex_id']))
+            conn.commit()
 
 
 def link_region(data):
