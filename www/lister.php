@@ -2,15 +2,19 @@
 $reponse = $bdd->query('SELECT * FROM pokemon');
 
 while ($donnees = $reponse->fetch()){
+    //debug( $donnees);
+
+    //on récupère la catégorie associée au pokémon
     $categorie = $bdd->prepare('SELECT nom FROM categorie WHERE id=:nom_categorie');
     $categorie->bindValue(':nom_categorie', $donnees['id_categorie']);
     $categorie->execute();
     $nom_categorie = $categorie->fetch();
-    //debug( $donnees);
+
+    //affichage du nom du pokémon
     echo '<h1>'.$donnees['nom'].'</h1>';
-    $path = $donnees['path_to_image'];
+
     //affichage des sprites du pokémon (regular et shiny)
-    echo '<img src="'.$path.'" width="150px"><br/>';
+    echo '<img src="'.$donnees['path_to_image'].'" width="150px"><br/>';
     echo '<img src="'.$donnees['path_to_image_shiny'].'" width="150px"><br/>';
 
     //affichage des infos concernant le pokémon
@@ -23,16 +27,20 @@ while ($donnees = $reponse->fetch()){
     echo 'defense : <strong>'.$donnees['defense'].'</strong><br/>';
     echo 'vitesse : <strong>'.$donnees['vitesse'].'</strong><br/>';
 
-    //affichage du/des type/types du pokémon
+    //on récupère le/les id du/des type/types associés au pokémon
     $types = $bdd->prepare('SELECT id_type FROM link_type WHERE id_pokemon=:id_pokemon');
     $types->bindValue(':id_pokemon', $donnees['id']);
     $types->execute();
+
+    //affichage du/des type/types du pokémon
     echo 'Type(s) : <strong>';
     while ($type = $types->fetch()){
+        //on récupère le nom de chaque type associé au pokémon
         $nom_type = $bdd->prepare('SELECT nom FROM type WHERE id=:id_type');
         $nom_type->bindValue(':id_type', $type['id_type']);
         $nom_type->execute();
         $type_nom = $nom_type->fetch();
+        //on affiche le nom de chaque type associé au pokémon
         echo $type_nom['nom'].' ';
     }
     echo '</strong><br/>';
