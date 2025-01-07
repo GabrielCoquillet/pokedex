@@ -1,6 +1,4 @@
 <?php
-$reponse = $bdd->query('SELECT * FROM pokemon');
-
 while ($donnees = $reponse->fetch()){
     //debug( $donnees);
 

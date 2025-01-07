@@ -35,12 +35,16 @@
 
         // Si l'action existe, on l'exécute
         if (is_file($action)) {
+            if ($_GET['a'] == 'lister') {
+                $reponse = $bdd->query('SELECT * FROM pokemon');
+            }
             include $action;
             // Sinon, on affiche la page d'index du module !
         }
         // Module non specifié ou invalide ? On affiche la page d'accueil !
     }
     else {
+        $reponse = $bdd->query('SELECT * FROM pokemon');
         include "lister.php";
     }
     ?>
