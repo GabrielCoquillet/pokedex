@@ -80,6 +80,41 @@ while ($donnees = $reponse->fetch()){
     $gen->bindValue(':id_pokemon', $donnees['id']);
     $gen->execute();
     echo "Génération d'apparition du pokémon :<strong> génération ".$gen->fetch()[0]."</strong><br/>";
+
+    //affichage des évolutions...
+    $familles = $bdd->prepare('SELECT * FROM famille WHERE id_pokemon_base=:id OR id_pokemon_level_2=:id OR id_pokemon_level_3=:id');
+    $familles->bindValue(':id', $donnees['id']);
+    $familles->execute();
+
+    while ($famille = $familles->fetch()) {
+        $nom_2 = $bdd->prepare('SELECT nom FROM pokemon WHERE id=:id');
+        $nom_2->bindValue(':id', $famille['id_pokemon_level_2']);
+        $nom_2->execute();
+        $nom_2 = $nom_2->fetch()[0];
+
+        $nom_3 = $bdd->prepare('SELECT nom FROM pokemon WHERE id=:id');
+        $nom_3->bindValue(':id', $famille['id_pokemon_level_3']);
+        $nom_3->execute();
+        $nom_3 = $nom_3->fetch()[0];
+
+        $nom_base = $bdd->prepare('SELECT nom FROM pokemon WHERE id=:id');
+        $nom_base->bindValue(':id', $famille['id_pokemon_base']);
+        $nom_base->execute();
+        $nom_base = $nom_base->fetch()[0];
+
+        if ($famille['id_pokemon_base'] == $donnees['id']) {
+            echo "Evolutions : <strong> " . $nom_2 . " " . $nom_3 . "</strong><br/>";
+        }
+        elseif ($famille['id_pokemon_level_2'] == $donnees['id']) {
+
+            echo "Est l'évolution de : <strong>". $nom_base ."</strong><br/>";
+            echo "Evolution : <strong>". $nom_3 ."</strong><br/>";
+        }
+        elseif ($famille['id_pokemon_level_3'] == $donnees['id']) {
+
+            echo "Est l'évolution de : <strong>". $nom_base ." ". $nom_2 ."</strong><br/>";
+        }
+    }
     echo '<hr/>';
 };
 
