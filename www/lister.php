@@ -1,6 +1,6 @@
 <?php
 while ($donnees = $reponse->fetch()){
-    //debug( $donnees);
+    debug( $donnees);
 
     //on récupère la catégorie associée au pokémon
     $categorie = $bdd->prepare('SELECT nom FROM categorie WHERE id=:nom_categorie');

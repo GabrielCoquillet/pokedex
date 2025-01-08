@@ -6,6 +6,7 @@
     <title>Pokedex</title>
     <link rel="icon" type="image/png" href="" />
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,6 +23,7 @@
         <li><a href="index.php?a=lister">Liste des Pokémons</a></li>
         <li><a href="index.php?a=rechercher">Rechercher un Pokémon</a></li>
         <li><a href="index.php?a=ajouter">Ajouter un Pokémon</a></li>
+        <li><a href="index.php?a=rendu">Compte Rendu</a></li>
     </ul>
 </div>
 
