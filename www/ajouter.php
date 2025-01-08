@@ -32,6 +32,28 @@
                 <label for="vit">Vitesse : </label>
                 <input type="text" name="vit" id="vit" value="" placeholder="vit"\>
 
+                <div class="dropdown">
+                    <button type="button">Selectionnez les types du pokemon</button>
+                    <div class="dropdown-content">
+                        <?php
+                            $types = $bdd->query("SELECT nom FROM type");
+                            while ($type = $types->fetch()) {
+                                echo '<label><input type="checkbox" name="types[]" value="'.$type['nom'].'">'.$type['nom'].'</label>';
+                            }
+                        ?>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button type="button">Selectionnez les faiblesses du pokemon</button>
+                    <div class="dropdown-content">
+                        <?php
+                        $types = $bdd->query("SELECT nom FROM type");
+                        while ($type = $types->fetch()) {
+                            echo '<label><input type="checkbox" name="faiblesses[]" value="'.$type['nom'].'">'.$type['nom'].'</label>';
+                        }
+                        ?>
+                    </div>
+                </div>
             </p>
             <p>
                 <label for="image_poke">Téléchargez une image (regular) : </label>
@@ -77,19 +99,68 @@ if (isset($_FILES['image_poke']) && $_FILES['image_poke']['error'] === 0 && isse
     // On peut valider le fichier et le stocker définitivement
     move_uploaded_file($_FILES['image_poke']['tmp_name'], $new_path);
     move_uploaded_file($_FILES['image_poke_shiny']['tmp_name'], $new_path);
+    }
+if (isset($_POST['nom']) && isset($_POST['categorie']) && isset($_POST['generation']) && isset($_POST['taille']) && isset($_POST['poids']) && isset($_POST['pv']) && isset($_POST['attack']) && isset($_POST['def']) && isset($_POST['vit']) && isset($_POST['types']) && isset($_POST['faiblesses'])) {
+    $categorie = $bdd->prepare("SELECT id FROM categorie WHERE nom=:nom");
+    $categorie->BindValue(':nom', $_POST['categorie']);
+    $categorie->execute();
+    if ($categorie->rowCount() == 0) {
+        $requete = $bdd->prepare("INSERT INTO categorie (nom) VALUES (:nom)");
+        $requete->bindValue(':nom', $_POST['categorie']);
+        $requete->execute();
 
-    if (isset($_POST['nom']) && isset($_POST['categorie']) && isset($_POST['generation']) && isset($_POST['taille']) && isset($_POST['poids']) && isset($_POST['pv']) && isset($_POST['attack']) && isset($_POST['def']) && isset($_POST['vit'])) {
-        $requete = $bdd->prepare('INSERT INTO pokemon (nom, id_categorie, path_to_image, path_to_image_shiny, taille, poids, pv, attack, vitesse, defense) VALUES (:nom, :categorie, :path, :path_shiny,  :taille, :poids, :pv, :attack, :vitesse, :defense)');
-        $requete->bindValue(':nom', $_POST['nom']);
-        $requete->bindValue(':categorie', $_POST['categorie']);
-        $requete->bindValue(':path', $path_bdd);
-        $requete->bindValue(':path_shiny', $path_bdd_shiny);
-        $requete->bindValue(':taille', $_POST['taille']);
-        $requete->bindValue(':poids', $_POST['poids']);
-        $requete->bindValue(':pv', $_POST['pv']);
-        $requete->bindValue(':attack', $_POST['attack']);
-        $requete->bindValue(':vitesse', $_POST['vit']);
-        $requete->bindValue(':defense', $_POST['def']);
+        $categorie = $bdd->prepare("SELECT id FROM categorie WHERE nom=:nom");
+        $categorie->BindValue(':nom', $_POST['categorie']);
+        $categorie->execute();
+    }
+    $categorie = $categorie->fetch()[0];
+
+    $requete = $bdd->prepare('INSERT INTO pokemon (nom, id_categorie, path_to_image, path_to_image_shiny, taille, poids, pv, attack, vitesse, defense) VALUES (:nom, :categorie, :path, :path_shiny,  :taille, :poids, :pv, :attack, :vitesse, :defense)');
+    $requete->bindValue(':nom', $_POST['nom']);
+    $requete->bindValue(':categorie', $categorie);
+    $requete->bindValue(':path', $path_bdd);
+    $requete->bindValue(':path_shiny', $path_bdd_shiny);
+    $requete->bindValue(':taille', $_POST['taille']);
+    $requete->bindValue(':poids', $_POST['poids']);
+    $requete->bindValue(':pv', $_POST['pv']);
+    $requete->bindValue(':attack', $_POST['attack']);
+    $requete->bindValue(':vitesse', $_POST['vit']);
+    $requete->bindValue(':defense', $_POST['def']);
+    $requete->execute();
+
+    $id_new_poke = $bdd->lastInsertId();
+
+    $requete = $bdd->prepare("INSERT INTO link_generation(id_pokemon, id_generation) VALUES (:id_poke, :id_generation)");
+    $requete->bindValue(':id_poke', $id_new_poke);
+    $requete->bindValue(':id_generation', $_POST['generation']);
+    $requete->execute();
+    debug($_POST['types']);
+    debug($_POST['faiblesses']);
+
+    foreach ($_POST['types'] as $type) {
+        $id_type = $bdd->prepare("SELECT id FROM type WHERE nom=:nom");
+        $id_type->bindValue(':nom', $type);
+        $id_type->execute();
+        $id_type = $id_type->fetch()[0];
+
+        $requete = $bdd->prepare("INSERT INTO link_type(id_type, id_pokemon) VALUES (:id_type, :id_pokemon)");
+        $requete->bindValue(':id_type', $id_type);
+        $requete->bindValue(':id_pokemon', $id_new_poke);
         $requete->execute();
     }
+
+    foreach ($_POST['faiblesses'] as $type) {
+        $id_type = $bdd->prepare("SELECT id FROM type WHERE nom=:nom");
+        $id_type->bindValue(':nom', $type);
+        $id_type->execute();
+        $id_type = $id_type->fetch()[0];
+        echo $id_type;
+
+        $requete = $bdd->prepare("INSERT INTO link_faiblesse(id_type, id_pokemon) VALUES (:id_type, :id_pokemon)");
+        $requete->bindValue(':id_type', $id_type);
+        $requete->bindValue(':id_pokemon', $id_new_poke);
+        $requete->execute();
+
+    }
+
 }
