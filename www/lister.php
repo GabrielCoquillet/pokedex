@@ -115,7 +115,18 @@ while ($donnees = $reponse->fetch()){
             echo "Est l'évolution de : <strong>". $nom_base ." ". $nom_2 ."</strong><br/>";
         }
     }
+    echo "<form action='index.php?a=lister' method='POST'><button type='delete'>Supprimer le pokemon</button></form>";
     echo '<hr/>';
+	
+	function remove(){
+		$requete = $bdd->prepare('REMOVE FROM pokemon WHERE id=:id');
+		$requete->BindValue(':id', $donnees['id']);
+		$requete->execute();
+	}
+	
+	if (isset($_POST['delete'])){
+		remove();
+	}
 };
 
 ?>
