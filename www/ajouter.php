@@ -1,5 +1,5 @@
 <!-- contenu de la page rechercher -->
-<h1>Ajouter une BD</h1>
+<h1>Ajouter une pokemon</h1>
 <div class="formulaire">
     <form action="index.php?a=ajouter" method="post" enctype="multipart/form-data">
         <fieldset>
