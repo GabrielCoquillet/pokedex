@@ -1,4 +1,10 @@
 <?php
+if (isset($_POST['delete'])) {
+    $requete = $bdd->prepare('DELETE FROM pokemon WHERE id=:id');
+    $requete->bindValue(':id', $_POST['delete']);
+    $requete->execute();
+    $reponse = $bdd->query("SELECT * FROM pokemon");
+}
 while ($donnees = $reponse->fetch()){
     debug( $donnees);
 
@@ -115,6 +121,7 @@ while ($donnees = $reponse->fetch()){
             echo "Est l'évolution de : <strong>". $nom_base ." ". $nom_2 ."</strong><br/>";
         }
     }
+    echo "<form action='index.php?a=lister' method='POST'><label><input type='checkbox' name='delete' id='delete' value='".$donnees['id']."'></label>Supprimer le pokemon ?<button type='submit'>Valider la suppression</button></form>";
     echo '<hr/>';
 };
 
