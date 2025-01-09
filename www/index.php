@@ -6,6 +6,7 @@
     <title>Pokedex</title>
     <link rel="icon" type="image/png" href="" />
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,6 +23,7 @@
         <li><a href="index.php?a=lister">Liste des Pokémons</a></li>
         <li><a href="index.php?a=rechercher">Rechercher un Pokémon</a></li>
         <li><a href="index.php?a=ajouter">Ajouter un Pokémon</a></li>
+        <li><a href="index.php?a=rendu">Compte Rendu</a></li>
     </ul>
 </div>
 
@@ -35,12 +37,16 @@
 
         // Si l'action existe, on l'exécute
         if (is_file($action)) {
+            if ($_GET['a'] == 'lister') {
+                $reponse = $bdd->query('SELECT * FROM pokemon');
+            }
             include $action;
             // Sinon, on affiche la page d'index du module !
         }
         // Module non specifié ou invalide ? On affiche la page d'accueil !
     }
     else {
+        $reponse = $bdd->query('SELECT * FROM pokemon');
         include "lister.php";
     }
     ?>

@@ -2,9 +2,9 @@
 //information sur la base de données
 // A MODIFIER SI NECESSAIRE
 $serveur = 'localhost';
-$nomBD = 'gestionnaire_bd';
+$nomBD = 'pokedex';
 $login = 'root';
-$mdp = '';
+$mdp = 'root';
 
 //tentative de connexion à MySQL via PDO
 try
@@ -18,7 +18,7 @@ catch (Exception $e)
 
 
 
-error_reporting(0); // Turn off warning, deprecated, notice everything except error
+error_reporting(1); // Turn off warning, deprecated, notice everything except error
 /* ------------------------------------------------------------------------------------------------
  * Fonctions utiles
  *
