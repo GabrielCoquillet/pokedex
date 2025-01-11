@@ -11,20 +11,17 @@
 
 <body>
 <?php include("config.php"); ?>
-<!-- titre -->
-<div id="div_titre">
-    <h1>Pokedex</h1>
-</div>
-<div class="clear"></div>
 
 <!-- menu -->
-<div id="menu">
-    <ul id="onglets">
-        <li><a href="index.php?a=lister">Liste des Pokémons</a></li>
-        <li><a href="index.php?a=rechercher">Rechercher un Pokémon</a></li>
-        <li><a href="index.php?a=ajouter">Ajouter un Pokémon</a></li>
-        <li><a href="index.php?a=rendu">Compte Rendu</a></li>
-    </ul>
+<div class="menu">
+    <!-- titre -->
+    <a class="logo">Pokedex</a>
+    <div class="menu-droit">
+        <a href="index.php?a=lister">Lister</a>
+        <a href="index.php?a=rechercher">Rechercher</a>
+        <a href="index.php?a=ajouter">Ajouter</a>
+        <a href="index.php?a=rendu">Compte rendu</a>
+    </div>
 </div>
 
 <!-- contenu de la page -->
