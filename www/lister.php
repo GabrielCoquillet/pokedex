@@ -8,23 +8,23 @@ if (isset($_POST['delete'])) {
 
 echo '<table>';
 echo "<tr class='header'>
-         <th>Sprites</th>
-         <th>Id</th>
-         <th>Nom</th>
-         <th>catégorie</th>
-         <th>taille</th>
-         <th>poids</th>
-         <th>pv</th>
-         <th>attaque</th>
-         <th>défense</th>
-         <th>vitesse</th>
-         <th>type(s)</th>
-         <th>faiblesse(s)</th>
-         <th>variante régionale</th>
-         <th>génération</th>
-         <th>est l'évolution de</th>
-         <th>évolution</th>
-         <th>Suppression</th>
+         <th class='header'>Sprites</th>
+         <th class='header'>Id</th>
+         <th class='header'>Nom</th>
+         <th class='header'>catégorie</th>
+         <th class='header'>taille</th>
+         <th class='header'>poids</th>
+         <th class='header'>pv</th>
+         <th class='header'>attaque</th>
+         <th class='header'>défense</th>
+         <th class='header'>vitesse</th>
+         <th class='header'>type(s)</th>
+         <th class='header'>faiblesse(s)</th>
+         <th class='header'>variante régionale</th>
+         <th class='header'>génération</th>
+         <th class='header'>est l'évolution de</th>
+         <th class='header'>évolution</th>
+         <th class='header'>Suppression</th>
   	   </tr>";
 while ($donnees = $reponse->fetch()){
     //debug( $donnees);
@@ -78,7 +78,7 @@ while ($donnees = $reponse->fetch()){
         $nom_type->execute();
         $type_nom = $nom_type->fetch();
         //on affiche le nom de chaque type associé au pokémon
-        echo $type_nom['nom'].' ';
+        echo $type_nom['nom'].'<br/>';
     }
     echo '</th>';
 
@@ -92,7 +92,7 @@ while ($donnees = $reponse->fetch()){
         $nom_faiblesse->bindValue(':id_type', $faiblesse['id_type']);
         $nom_faiblesse->execute();
         $faiblesse_nom = $nom_faiblesse->fetch();
-        echo $faiblesse_nom['nom'].' ';
+        echo $faiblesse_nom['nom'].'<br/>';
     }
     echo '</th>';
 

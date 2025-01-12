@@ -10,19 +10,66 @@
 </head>
 
 <body>
-<?php include("config.php"); ?>
+<?php include("config.php");
 
-<!-- menu -->
+if (isset($_GET['a'])){
+    if ($_GET['a'] == "lister"){
+        echo '<!-- menu -->
 <div class="menu">
     <!-- titre -->
-    <a class="logo">Pokedex</a>
+    <a class="logo" href="index.php">Pokedex</a>
     <div class="menu-droit">
-        <a href="index.php?a=lister">Lister</a>
+        <a class="actif" href="index.php?a=lister">Lister</a>
         <a href="index.php?a=rechercher">Rechercher</a>
         <a href="index.php?a=ajouter">Ajouter</a>
         <a href="index.php?a=rendu">Compte rendu</a>
     </div>
-</div>
+</div>';
+    }
+    elseif ($_GET['a'] == "ajouter"){
+        echo '<!-- menu -->
+<div class="menu">
+    <!-- titre -->
+    <a class="logo" href="index.php">Pokedex</a>
+    <div class="menu-droit">
+        <a href="index.php?a=lister">Lister</a>
+        <a href="index.php?a=rechercher">Rechercher</a>
+        <a class="actif" href="index.php?a=ajouter">Ajouter</a>
+        <a href="index.php?a=rendu">Compte rendu</a>
+    </div>
+</div>';
+    }
+    elseif ($_GET['a'] == "rendu"){
+        echo '<!-- menu -->
+<div class="menu">
+    <!-- titre -->
+    <a class="logo" href="index.php">Pokedex</a>
+    <div class="menu-droit">
+        <a href="index.php?a=lister">Lister</a>
+        <a href="index.php?a=rechercher">Rechercher</a>
+        <a href="index.php?a=ajouter">Ajouter</a>
+        <a class="actif" href="index.php?a=rendu">Compte rendu</a>
+    </div>
+</div>';
+    }
+    elseif ($_GET['a'] == "rechercher"){
+        echo '<!-- menu -->
+<div class="menu">
+    <!-- titre -->
+    <a class="logo" href="index.php">Pokedex</a>
+    <div class="menu-droit">
+        <a href="index.php?a=lister">Lister</a>
+        <a class="actif" href="index.php?a=rechercher">Rechercher</a>
+        <a href="index.php?a=ajouter">Ajouter</a>
+        <a href="index.php?a=rendu">Compte rendu</a>
+    </div>
+</div>';
+    }
+}
+
+?>
+
+
 
 <!-- contenu de la page -->
 <div id="contenu">

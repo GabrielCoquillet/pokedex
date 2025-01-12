@@ -235,6 +235,7 @@ img{
 .menu a {
 	float: left;
 	color: black;
+
 	text-align: center;
 	padding: 12px;
 	text-decoration: none;
@@ -255,8 +256,8 @@ img{
 }
 
 .menu a.actif {
-	background-color: #F5CB5C;
-	color: black;
+	background-color: #30a7d7;
+	color: white;
 }
 
 .menu-droit {
@@ -271,9 +272,11 @@ table{
 }
 
 tr.header{
-	background-color: #F5CB5C;
+	background-color: #e3350d;
 }
-
+th.header{
+	color:white;
+}
 tr:nth-child(even){background-color: #f2f2f2;}
 
 th{
@@ -283,5 +286,6 @@ th{
 	padding-left: 10px;
 	text-align: left;
 	color: black;
-	font-family: "Noto Sans";
+	font-family: "nunito";
+	font-size: 15px;
 }
