@@ -25,8 +25,7 @@ if (isset($_GET['a'])){
         <a href="index.php?a=rendu">Compte rendu</a>
     </div>
 </div>';
-    }
-    elseif ($_GET['a'] == "ajouter"){
+    }elseif ($_GET['a'] == "ajouter"){
         echo '<!-- menu -->
 <div class="menu">
     <!-- titre -->
@@ -38,8 +37,7 @@ if (isset($_GET['a'])){
         <a href="index.php?a=rendu">Compte rendu</a>
     </div>
 </div>';
-    }
-    elseif ($_GET['a'] == "rendu"){
+    }elseif ($_GET['a'] == "rendu"){
         echo '<!-- menu -->
 <div class="menu">
     <!-- titre -->
@@ -51,8 +49,7 @@ if (isset($_GET['a'])){
         <a class="actif" href="index.php?a=rendu">Compte rendu</a>
     </div>
 </div>';
-    }
-    elseif ($_GET['a'] == "rechercher"){
+    }elseif ($_GET['a'] == "rechercher"){
         echo '<!-- menu -->
 <div class="menu">
     <!-- titre -->
@@ -65,6 +62,19 @@ if (isset($_GET['a'])){
     </div>
 </div>';
     }
+}
+else{
+    echo '<!-- menu -->
+<div class="menu">
+    <!-- titre -->
+    <a class="logo" href="index.php">Pokedex</a>
+    <div class="menu-droit">
+        <a class="actif" href="index.php?a=lister">Lister</a>
+        <a href="index.php?a=rechercher">Rechercher</a>
+        <a href="index.php?a=ajouter">Ajouter</a>
+        <a href="index.php?a=rendu">Compte rendu</a>
+    </div>
+</div>';
 }
 
 ?>
