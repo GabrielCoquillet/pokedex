@@ -1,5 +1,5 @@
-<!-- contenu de la page rechercher -->
-<h1>Recherche de BDs</h1>
+<link rel="stylesheet" href="style_rechercher.css">
+<h1>Recherche de pokemon</h1>
 <div class="formulaire">
     <form action="index.php?a=rechercher" method="post">
         <fieldset>
@@ -55,4 +55,3 @@ if(isset($_POST) && !empty($_POST)){
     include 'lister.php';
 }
 ?>
-
