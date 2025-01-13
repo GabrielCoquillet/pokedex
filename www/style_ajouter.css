@@ -1,0 +1,57 @@
+body{
+    background-color:#0075BE
+}
+h1{
+    color:#BE1F00;
+}
+input{
+    border-radius:20px;
+}
+fieldset{
+    border-radius:20px;
+    border-style:none;
+}
+form{
+    border-radius:20px;
+    background-color: #fab00d;
+}
+#contenu{
+    background-color: #0075be;
+}
+.formulaire{
+    border-radius:20px;
+    padding:0px;
+}
+#nom{
+    margin-left: 0;
+}
+#categorie{
+    margin-left:0;
+}
+#generation{
+    margin-left:0;
+}
+#taille{
+    margin-left:0;
+}
+#poids{
+    margin-left:0;
+}
+#pv{
+    margin-left:0;
+}
+#attack{
+    margin-left:0;
+}
+#def{
+    margin-left:0;
+}
+#vit{
+    margin-left:0;
+}
+#image_poke{
+    border-radius:0px;
+}
+#image_poke_shiny{
+    border-radius:0px;
+}

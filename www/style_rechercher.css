@@ -1,0 +1,27 @@
+body{
+    background-color: #0075be;
+}
+h1{
+    color:#BE1F00;
+}
+input{
+    border-radius:20px;
+}
+fieldset{
+    border-radius:20px;
+    border-style:none;
+}
+form{
+    border-radius:20px;
+    background-color: #fab00d;
+}
+.formulaire{
+    border-radius:20px;
+    padding:0px;
+}
+#contenu{
+    background-color: #0075be;
+}
+#reponse{
+    background-color:#be2000;
+}
