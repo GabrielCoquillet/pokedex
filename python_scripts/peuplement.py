@@ -28,12 +28,15 @@ def pokemon(data):
         cursor.execute(sql,(data[i]['category']))
         cat_id = cursor.fetchone()[0]
 
+        path = 'images/sprites/'+str(data[i]['pokedex_id'])+"/regular.png"
+        path_shiny='images/sprites/'+str(data[i]['pokedex_id'])+"/shiny.png"
+        print(path)
         #insertion dans la table pokemon du tuple correspondant au pokemon
         sql = "INSERT INTO pokemon VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         cursor.execute(sql,
         (int(data[i]['pokedex_id']),
         tri(data[i]['name']['fr']),
-        data[i]['sprites']['regular'],
+        path,
         cat_id,
         data[i]['height'],
         data[i]['weight'],
@@ -41,7 +44,7 @@ def pokemon(data):
         int(data[i]['stats']['atk']),
         int(data[i]['stats']['def']),
         int(data[i]['stats']['vit']),
-        data[i]['sprites']['shiny'])
+        path_shiny)
         )
         conn.commit()
 
