@@ -10,22 +10,76 @@
 </head>
 
 <body>
-<?php include("config.php"); ?>
-<!-- titre -->
-<div id="div_titre">
-    <h1>Pokedex</h1>
-</div>
-<div class="clear"></div>
+<?php include("config.php");
 
-<!-- menu -->
-<div id="menu">
-    <ul id="onglets">
-        <li><a href="index.php?a=lister">Liste des Pokémons</a></li>
-        <li><a href="index.php?a=rechercher">Rechercher un Pokémon</a></li>
-        <li><a href="index.php?a=ajouter">Ajouter un Pokémon</a></li>
-        <li><a href="index.php?a=rendu">Compte Rendu</a></li>
-    </ul>
-</div>
+if (isset($_GET['a'])){
+    if ($_GET['a'] == "lister"){
+        echo '<!-- menu -->
+<div class="menu">
+    <!-- titre -->
+    <a class="logo" href="index.php">Pokedex</a>
+    <div class="menu-droit">
+        <a class="actif" href="index.php?a=lister">Lister</a>
+        <a href="index.php?a=rechercher">Rechercher</a>
+        <a href="index.php?a=ajouter">Ajouter</a>
+        <a href="index.php?a=rendu">Compte rendu</a>
+    </div>
+</div>';
+    }elseif ($_GET['a'] == "ajouter"){
+        echo '<!-- menu -->
+<div class="menu">
+    <!-- titre -->
+    <a class="logo" href="index.php">Pokedex</a>
+    <div class="menu-droit">
+        <a href="index.php?a=lister">Lister</a>
+        <a href="index.php?a=rechercher">Rechercher</a>
+        <a class="actif" href="index.php?a=ajouter">Ajouter</a>
+        <a href="index.php?a=rendu">Compte rendu</a>
+    </div>
+</div>';
+    }elseif ($_GET['a'] == "rendu"){
+        echo '<!-- menu -->
+<div class="menu">
+    <!-- titre -->
+    <a class="logo" href="index.php">Pokedex</a>
+    <div class="menu-droit">
+        <a href="index.php?a=lister">Lister</a>
+        <a href="index.php?a=rechercher">Rechercher</a>
+        <a href="index.php?a=ajouter">Ajouter</a>
+        <a class="actif" href="index.php?a=rendu">Compte rendu</a>
+    </div>
+</div>';
+    }elseif ($_GET['a'] == "rechercher"){
+        echo '<!-- menu -->
+<div class="menu">
+    <!-- titre -->
+    <a class="logo" href="index.php">Pokedex</a>
+    <div class="menu-droit">
+        <a href="index.php?a=lister">Lister</a>
+        <a class="actif" href="index.php?a=rechercher">Rechercher</a>
+        <a href="index.php?a=ajouter">Ajouter</a>
+        <a href="index.php?a=rendu">Compte rendu</a>
+    </div>
+</div>';
+    }
+}
+else{
+    echo '<!-- menu -->
+<div class="menu">
+    <!-- titre -->
+    <a class="logo" href="index.php">Pokedex</a>
+    <div class="menu-droit">
+        <a class="actif" href="index.php?a=lister">Lister</a>
+        <a href="index.php?a=rechercher">Rechercher</a>
+        <a href="index.php?a=ajouter">Ajouter</a>
+        <a href="index.php?a=rendu">Compte rendu</a>
+    </div>
+</div>';
+}
+
+?>
+
+
 
 <!-- contenu de la page -->
 <div id="contenu">
@@ -58,4 +112,3 @@
 </div>
 </body>
 </html>
-
