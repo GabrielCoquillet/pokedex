@@ -1,4 +1,5 @@
 <?php
+set_time_limit(300);
 if (isset($_POST['delete'])) {
     $requete = $bdd->prepare('DELETE FROM pokemon WHERE id=:id');
     $requete->bindValue(':id', $_POST['delete']);
@@ -33,7 +34,9 @@ while ($donnees = $reponse->fetch()){
     //affichage des sprites du pokémon (regular et shiny)
     echo '<th>';
     echo '<img src="'.$donnees['path_to_image'].'" width="150px">';
+	if (is_file($donnees['path_to_image_shiny'])){
     echo '<img src="'.$donnees['path_to_image_shiny'].'" width="150px">';
+	}
     echo '</th>';
 
     //affichage de l'id
