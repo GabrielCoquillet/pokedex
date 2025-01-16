@@ -30,7 +30,6 @@ def pokemon(data):
 
         path = 'images/sprites/'+str(data[i]['pokedex_id'])+"/regular.png"
         path_shiny='images/sprites/'+str(data[i]['pokedex_id'])+"/shiny.png"
-        print(path)
         #insertion dans la table pokemon du tuple correspondant au pokemon
         sql = "INSERT INTO pokemon VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         cursor.execute(sql,
