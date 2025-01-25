@@ -18,7 +18,7 @@ catch (Exception $e)
 
 
 
-error_reporting(1); // Turn off warning, deprecated, notice everything except error
+error_reporting(0); // Turn off warning, deprecated, notice everything except error
 /* ------------------------------------------------------------------------------------------------
  * Fonctions utiles
  *

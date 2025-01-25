@@ -55,10 +55,12 @@
                 </div>
             </p>
             <p>
-                <button type="button" onclick="document.getElementById('image_poke').click()">Image regular</button>
+                <button type="button" onclick="document.getElementById('image_poke').click()">regular</button>
+                <button type="button" onclick="document.getElementById('image_poke_shiny').click()">shiny</button>
+
                 <input type="file" name="image_poke" id="image_poke" style="display: none"/>
 
-                <button type="button" onclick="document.getElementById('image_poke_shiny').click()">Image shiny</button>
+
                 <input type="file" name="image_poke_shiny" id="image_poke_shiny" style="display: none"/>
             </p>
         <p class="center"><button type="submit">Ajouter</button> <button type="reset">Effacer les champs</button></p>
@@ -69,7 +71,7 @@
 // Testons si le fichier a bien été envoyé et s'il n'y a pas des erreurs
 if (isset($_FILES['image_poke']) && $_FILES['image_poke']['error'] === 0 && isset($_FILES['image_poke_shiny']) && $_FILES['image_poke_shiny']['error'] === 0) {
     // Testons, si le fichier est trop volumineux
-    if ($_FILES['image_poke']['size'] > 1000000 or $_FILES['image_poke_shiny']['size'] > 1000000) {
+    if ($_FILES['image_poke']['size'] > 5000000000000000000 or $_FILES['image_poke_shiny']['size'] > 5000000000000000000) {
         echo "L'envoi n'a pas pu être effectué, erreur ou image trop volumineuse";
         return;
     }
@@ -89,15 +91,17 @@ if (isset($_FILES['image_poke']) && $_FILES['image_poke']['error'] === 0 && isse
         echo "L'envoi n'a pas pu être effectué, le dossier images est manquant";
         return;
     }
-    $path_bdd = '/images/'. basename($_FILES['image_poke']['name']);
-    $path_bdd_shiny = '/images/'. basename($_FILES['image_poke_shiny']['name']);
+    $path_bdd = 'images/'. basename($_FILES['image_poke']['name']);
+    $path_bdd_shiny = 'images/'. basename($_FILES['image_poke_shiny']['name']);
     $new_path = $path . basename($_FILES['image_poke']['name']);
     $new_path_shiny = $path . basename($_FILES['image_poke_shiny']['name']);
 
     // On peut valider le fichier et le stocker définitivement
     move_uploaded_file($_FILES['image_poke']['tmp_name'], $new_path);
-    move_uploaded_file($_FILES['image_poke_shiny']['tmp_name'], $new_path);
-    }
+    move_uploaded_file($_FILES['image_poke_shiny']['tmp_name'], $new_path_shiny);
+
+
+}
 if (isset($_POST['nom']) && isset($_POST['categorie']) && isset($_POST['generation']) && isset($_POST['taille']) && isset($_POST['poids']) && isset($_POST['pv']) && isset($_POST['attack']) && isset($_POST['def']) && isset($_POST['vit']) && isset($_POST['types']) && isset($_POST['faiblesses'])) {
     $categorie = $bdd->prepare("SELECT id FROM categorie WHERE nom=:nom");
     $categorie->BindValue(':nom', $_POST['categorie']);
@@ -132,8 +136,8 @@ if (isset($_POST['nom']) && isset($_POST['categorie']) && isset($_POST['generati
     $requete->bindValue(':id_poke', $id_new_poke);
     $requete->bindValue(':id_generation', $_POST['generation']);
     $requete->execute();
-    debug($_POST['types']);
-    debug($_POST['faiblesses']);
+    //debug($_POST['types']);
+    //debug($_POST['faiblesses']);
 
     foreach ($_POST['types'] as $type) {
         $id_type = $bdd->prepare("SELECT id FROM type WHERE nom=:nom");
