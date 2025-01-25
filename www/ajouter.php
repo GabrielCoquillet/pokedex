@@ -55,10 +55,10 @@
                 </div>
             </p>
             <p>
-                <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('image_poke').click()">Image regular</button>
+                <button type="button" onclick="document.getElementById('image_poke').click()">Image regular</button>
                 <input type="file" name="image_poke" id="image_poke" style="display: none"/>
 
-                <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('image_poke_shiny').click()">Image shiny</button>
+                <button type="button" onclick="document.getElementById('image_poke_shiny').click()">Image shiny</button>
                 <input type="file" name="image_poke_shiny" id="image_poke_shiny" style="display: none"/>
             </p>
         <p class="center"><button type="submit">Ajouter</button> <button type="reset">Effacer les champs</button></p>
