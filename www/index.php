@@ -63,20 +63,6 @@ if (isset($_GET['a'])){
 </div>';
     }
 }
-else{
-    echo '<!-- menu -->
-<div class="menu">
-    <!-- titre -->
-    <a class="logo" href="index.php">Pokedex</a>
-    <div class="menu-droit">
-        <a class="actif" href="index.php?a=lister">Lister</a>
-        <a href="index.php?a=rechercher">Rechercher</a>
-        <a href="index.php?a=ajouter">Ajouter</a>
-        <a href="index.php?a=rendu">Compte rendu</a>
-    </div>
-</div>';
-}
-
 ?>
 
 
@@ -100,8 +86,7 @@ else{
         // Module non specifié ou invalide ? On affiche la page d'accueil !
     }
     else {
-        $reponse = $bdd->query('SELECT * FROM pokemon');
-        include "lister.php";
+        header('Location: index.php?a=lister');
     }
     ?>
 </div>

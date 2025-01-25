@@ -2,34 +2,33 @@
 <h1>Ajouter un pokemon</h1>
 <div class="formulaire">
     <form action="index.php?a=ajouter" method="post" enctype="multipart/form-data">
-        <fieldset>
-            <legend>Informations du pokémon à ajouter</legend>
+            <h2>Informations du pokémon à ajouter</h2>
             <p>
-                <label for="nom">Nom : </label>
+                <label for="nom"></label>
                 <input type="text" name="nom" id="nom" value="" placeholder="Nom"\>
 
-                <label for="categorie">Catégorie : </label>
+                <label for="categorie"></label>
                 <input type="text" name="categorie" id="categorie" value="" placeholder="Catégorie"\>
 
-                <label for="generation">Génération : </label>
+                <label for="generation"></label>
                 <input type="text" name="generation" id="generation" value="" placeholder="generation"\>
 
-                <label for="taille">Taille : </label>
+                <label for="taille"></label>
                 <input type="text" name="taille" id="taille" value="" placeholder="taille"\>
 
-                <label for="poids">Poids : </label>
+                <label for="poids"></label>
                 <input type="text" name="poids" id="poids" value="" placeholder="poids"\>
 
-                <label for="pv">Pv : </label>
+                <label for="pv"></label>
                 <input type="text" name="pv" id="pv" value="" placeholder="pv"\>
 
-                <label for="attack">Attaque : </label>
+                <label for="attack"></label>
                 <input type="text" name="attack" id="attack" value="" placeholder="attack"\>
 
-                <label for="def">Défense : </label>
+                <label for="def"></label>
                 <input type="text" name="def" id="def" value="" placeholder="def"\>
 
-                <label for="vit">Vitesse : </label>
+                <label for="vit"></label>
                 <input type="text" name="vit" id="vit" value="" placeholder="vit"\>
 
                 <div class="dropdown">
@@ -56,14 +55,13 @@
                 </div>
             </p>
             <p>
-                <label for="image_poke">Téléchargez une image (regular) : </label>
-                <input type="file" name="image_poke" id="image_poke" value=""/>
+                <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('image_poke').click()">Image regular</button>
+                <input type="file" name="image_poke" id="image_poke" style="display: none"/>
 
-                <label for="image_poke_shiny">Téléchargez une image (shiny) : </label>
-                <input type="file" name="image_poke_shiny" id="image_poke_shiny" value=""/>
+                <button style="display:block;width:120px; height:30px;" onclick="document.getElementById('image_poke_shiny').click()">Image shiny</button>
+                <input type="file" name="image_poke_shiny" id="image_poke_shiny" style="display: none"/>
             </p>
-        </fieldset>
-        <p class="center"><input type="submit" value="Ajouter"/> <input type="reset" value="Effacer les champs"/></p>
+        <p class="center"><button type="submit">Ajouter</button> <button type="reset">Effacer les champs</button></p>
     </form>
 </div>
 

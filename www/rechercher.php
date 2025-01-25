@@ -1,25 +1,21 @@
 <!-- contenu de la page rechercher -->
-<h1>Recherche de pokemons</h1>
-<div class="formulaire">
+<div class="recherche">
     <form action="index.php?a=rechercher" method="post">
-        <fieldset>
-            <legend>Critères de recherche</legend>
-            <p>
-                <select name="critere" id="critere" >
-                    <option value="contient">Contient</option>
-                    <option value="commence">Commence par</option>
-                    <option value="finit">Finit par</option>
-                    <option value="id">A pour id</option>
-                    <option value="generation">De la génération</option>
-                    <option value="categorie">De la catégorie</option>
-                    <option value="type">De type</option>
-                    <option value="faiblesse">A pour faiblesse le type</option>
+            <p class="search">
+                <select name="critere" class="search">
+                    <option value="contient" class="search">Contient</option>
+                    <option value="commence" class="search">Commence par</option>
+                    <option value="finit" class="search">Finit par</option>
+                    <option value="id" class="search">A pour id</option>
+                    <option value="generation" class="search">De la génération</option>
+                    <option value="categorie" class="search">De la catégorie</option>
+                    <option value="type" class="search">De type</option>
+                    <option value="faiblesse" class="search">A pour faiblesse le type</option>
                 </select>
                 <label for="reponse"></label>
-                <input type="text" name="reponse" id="reponse" value="<?php echo $_POST['titre']?>"\>
+                <input type="text" class ="search" name="reponse" id="reponse" value="<?php echo $_POST['titre']?>" placeholder="search pokemon">
+                <button type="submit" class="search"><img src="images/search.png" width="15px" height="15px"/></button>
             </p>
-        </fieldset>
-        <p class="center"><input type="submit" value="Lister"/> <input type="reset" value="Effacer les champs"/></p>
     </form>
 </div>
 <?php

@@ -23,14 +23,36 @@ body{
 	/*background:#F4F9FD;*/
 	font-family: nunito;
 	color:black;
+	min-height: 100%;
 }
 
-img{
-	/*border:0;	*/
+h1{
+	text-align: center;
+	font-family: nunito;
+	font-size: 25px;
 }
 
-.clear{
-	clear:both;
+h2{
+	text-align: center;
+	font-family: rubik;
+	color: white;
+	font-size: 15px;
+}
+
+button{
+	border-radius: 5px;
+	border: none;
+	background-color: #30a7d7;
+	color: white;
+	padding: 5px;
+	margin: 5px;
+}
+
+#footer{
+	font-size:9px;
+	font-style:italic;
+	text-align:right;
+	padding:5px;
 }
 
 .center{
@@ -65,138 +87,72 @@ img{
 	font-weight:bold;
 }
 
-/* Titre */
-#div_titre{
-	font : bold 11px Batang, arial, serif;
-}
-
-#div_titre h1{
-	font : bold 22px Batang, arial, serif;
-}
-
-
-/* Menu */
-#menu{
-	/*border-bottom : 1px solid #9EA0A1;*/
-	margin: auto;
-	padding-bottom : 25px;
-}
-
-#onglets{
-	position : absolute;
-	/*border : 1px solid transparent;*/
-	padding : 0;
-	font : bold 12px Batang, arial, serif;
-	list-style-type : none;
-	margin-top : 0;
-	left : 50%;
-	width : 100%;
-	margin-left : -25%;  /*la moitié de width */
-	/*margin-left:auto;
-	margin-right:auto;*/
-}
-
-
-#onglets li{
-	float : left;
-	height : 20px; /* à modifier suivant la taille de la police pour centrer le texte dans l'onglet */
-	background-color: #F4F9FD;
-	margin : 2px 2px 0 2px !important;  /* Pour les navigateurs autre que IE */
-	margin : 1px 2px 0 2px;  /* Pour IE  */
-	/*border : 1px solid #9EA0A1;*/
-}
-
-#onglets li.active{
-	/*border-bottom: 1px solid #fff;*/
-	/*border-bottom: 0px;*/
-	background-color: #fff;
-	padding : 1px;
-}
-
-#onglets a{
-	display : block;
-	color : #666;
-	text-decoration : none;
-	padding : 4px;
-}
-
-#onglets a:hover{
-	background : #fff;
-}
-
-
 /* Formulaires de tri */
 .formulaire{
-	width:70%;
+	width:50%;
 	text-align:left;
-	background-color:#F4F9FD;
-	/*border : 2px solid #9EA0A1;*/
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom:10px;
-	margin-top:10px;
+	background-color: rgba(48, 167, 215, 0.5);
+	border-radius: 20px;
+	margin: auto;
 	padding:5px;
 	font-size:10px;
+	color: white;
+	font-family: nunito;
 }
+
 
 .formulaire input{
-	margin-right:5px;
-	margin-left :25px;
+	margin:5px;
+	border:none;
+	border-radius: 5px;
 }
 
-.formulaire label{
-	font-weight:lighter;
-	font-style:italic;
-}
+/* search bar */
 
-/* Tableaux reponses */
-.tab_reponse ul{
+.recherche{
+	width:70%;
 	text-align:left;
-	font-size:9px;
-	font-style:italic;
+	background-color: #e3350d;
+	border-radius: 20px;
+	margin: auto;
+	font-size:10px;
+	color: white;
+	font-family: nunito;
 }
 
-.tab_reponse table{
-	margin-left: auto;
-	margin-right: auto;
-	width:90%;
-	/*border-collapse: collapse;*/
-	text-align:center;
-	margin-bottom:20px;
-	margin-top:10px;
+select.search{
+	border-radius: 20px;
+	border: none;
+	height: 25px;
+	color: white;
+	font-family: nunito;
+	background-color: #e3350d;
 }
 
-#contenu caption, #contenu h1{
-	text-align:center;
-	font : bold 16px Batang, arial, serif;
-	color: #9EA0A1;
-	text-transform: uppercase;
-	padding:5px;
+.search{
+	overflow: hidden;
+	display: flex;
+	background-color: transparent;
+	align-items: center;
+	border-radius: 20px;
+	padding-left: 10px;
+	margin:5px;
+	border:none;
 }
 
-.tab_reponse th {
-	font : bold 13px Batang, arial, serif;
-	background-color:#F4F9FD;
-}
-
-.tab_reponse td, .tab_reponse th{
-	/* Mettre une bordure sur les td ET les th */
-	/*border: 1px solid #9EA0A1;*/
-	padding:1px 4px;
-}
-
-
-#footer{
-	font-size:9px;
-	font-style:italic;
-	text-align:right;
-	padding:5px;
+input.search{
+	height: 25px;
+	flex: 1;
+	color: #FFFFFF;
+	font-family: nunito;
 }
 
 
 
 
 
+
+/*selection de types*/
 .dropdown {
 	position: relative;
 	display: inline-block;
@@ -205,10 +161,12 @@ img{
 .dropdown-content {
 	display: none;
 	position: absolute;
-	background-color: #f9f9f9;
-	padding: 0;
+	background-color: #30a7d7;
+	border-radius: 5px;
 	margin: 0;
+	color: white;
 	max-height: 300px;
+	width: 100px;
 	overflow-y: auto; /* Ajoute un défilement si nécessaire */
 }
 
@@ -226,7 +184,7 @@ img{
 	display: block;
 }
 
-
+/* menu */
 .menu {
 	overflow: hidden;
 	padding: 20px 10px;
