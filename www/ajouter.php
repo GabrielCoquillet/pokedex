@@ -119,7 +119,7 @@ if (isset($_POST['nom']) && isset($_POST['categorie']) && isset($_POST['generati
     }
     $categorie = $categorie->fetch()[0];
 
-    $requete = $bdd->prepare('INSERT INTO pokemon (nom, id_categorie, path_to_image, path_to_image_shiny, taille, poids, pv, attack, vitesse, defense) VALUES (:nom, :categorie, :path, :path_shiny,  :taille, :poids, :pv, :attack, :vitesse, :defense)');
+    $requete = $bdd->prepare('INSERT INTO pokemon (nom, id_categorie, path_to_image, path_to_image_shiny, taille, poids, pv, attack, vitesse, defense, generation) VALUES (:nom, :categorie, :path, :path_shiny,  :taille, :poids, :pv, :attack, :vitesse, :defense, :generation)');
     $requete->bindValue(':nom', $_POST['nom']);
     $requete->bindValue(':categorie', $categorie);
     $requete->bindValue(':path', $path_bdd);
@@ -130,14 +130,10 @@ if (isset($_POST['nom']) && isset($_POST['categorie']) && isset($_POST['generati
     $requete->bindValue(':attack', $_POST['attack']);
     $requete->bindValue(':vitesse', $_POST['vit']);
     $requete->bindValue(':defense', $_POST['def']);
+    $requete->bindValue(':generation', intval($_POST['generation']));
     $requete->execute();
 
     $id_new_poke = $bdd->lastInsertId();
-
-    $requete = $bdd->prepare("INSERT INTO link_generation(id_pokemon, id_generation) VALUES (:id_poke, :id_generation)");
-    $requete->bindValue(':id_poke', $id_new_poke);
-    $requete->bindValue(':id_generation', $_POST['generation']);
-    $requete->execute();
 
     foreach ($_POST['types'] as $type) {
         $id_type = $bdd->prepare("SELECT id FROM type WHERE nom=:nom");

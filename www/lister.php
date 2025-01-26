@@ -3,7 +3,7 @@ set_time_limit(300);
 if (isset($_POST['delete'])) {
     $requete = $bdd->prepare('DELETE FROM pokemon WHERE id=:id');
     $requete->bindValue(':id', $_POST['delete']);
-    //$requete->execute();
+    $requete->execute();
     $reponse = $bdd->query("SELECT * FROM pokemon");
 }
 

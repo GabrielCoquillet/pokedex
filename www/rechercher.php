@@ -34,7 +34,7 @@ if(isset($_POST) && !empty($_POST)){
         $requete = 'SELECT * FROM pokemon WHERE id ='.$_POST['reponse'].' ORDER BY nom ASC';
     }
     elseif ($_POST['critere'] == 'generation') {
-        $requete = 'SELECT * FROM pokemon, link_generation, generation WHERE link_generation.id_pokemon = pokemon.id AND link_generation.id_generation ='.$_POST['reponse'].' ORDER BY pokemon.nom ASC';
+        $requete = 'SELECT * FROM pokemon WHERE pokemon.generation ='.$_POST['reponse'].' ORDER BY pokemon.nom ASC';
     }
     elseif ($_POST['critere'] == 'type') {
         $requete = 'SELECT pokemon.id_categorie, pokemon.nom, pokemon.id, pokemon.path_to_image, pokemon.path_to_image_shiny, pokemon.taille, pokemon.poids, pokemon.attack,pokemon.pv, pokemon.defense, pokemon.vitesse FROM pokemon, type, link_type WHERE pokemon.id = link_type.id_pokemon AND link_type.id_type = type.id AND type.nom ="'.$_POST['reponse'].'" ORDER BY pokemon.nom ASC';
