@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pokedex</title>
-    <link rel="icon" type="image/png" href="images/pokedex.jpg" />
+    <link rel="icon" type="image/png" href="images/pokedex.jpeg" />
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
 </head>
