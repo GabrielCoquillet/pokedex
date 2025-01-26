@@ -1,7 +1,7 @@
 <h1>Compte rendu</h1>
 <h2 class="compte_rendu">I - Objectif</h2>
 <p>
-    Ce projet a pour but de concevoir une interface web fonctionnelle permettant de gérer une base de données de Pokémon. Sur ce site, il sera possible de lister, rechercher un pokémon à l’aide de son prénom ou de ses caractéristiques et d’ajouter un pokémon. De plus, nous l’avons hébergé chez OSDPROTECT, pour pouvoir y accéder vous pouvez aller sur le site <a href="https://pokedex.gcoquillet.fr" class="compte_rendu">pokedex.gcoquillet.fr</a>.
+    Ce projet a pour but de concevoir une interface web fonctionnelle permettant de gérer une base de données de Pokémon. Sur ce site, il sera possible de lister, rechercher un Pokémon à l’aide de son prénom ou de ses caractéristiques et d’ajouter un Pokémon. De plus, nous l’avons hébergé chez OSDPROTECT, pour pouvoir y accéder vous pouvez aller sur le site <a href="https://pokedex.gcoquillet.fr" class="compte_rendu">pokedex.gcoquillet.fr</a>.
 </p>
 <h2 class="compte_rendu">II - Outils</h2>
 <p>
@@ -10,40 +10,40 @@
 <h2 class="compte_rendu">III - Base de données</h2>
 <h3>Création de la base de données</h3>
 <p>
-    La base de données que nous avons créée contient 8 tables : pokemon, famille, link_generation, generation, link_type, type, link_faiblesse et categorie.
+    La base de données que nous avons créée contient 8 tables : pokemon, famille, link_region, region, link_type, type, link_faiblesse et categorie.
 </p>
 <p>
-    La table pokémon contient toutes les informations liées au pokémon qui sont unique.
+    La table Pokémon contient toutes les informations liées au Pokémon qui sont unique.
 </p>
 <p>
-    La table famille permet de mettre en lien les id des différents pokémon formant une famille.
+    La table famille permet de mettre en lien les id des différents Pokémon formant une famille.
 </p>
 <p>
-    La table region contient toutes les régions de l’univers pokémon.
+    La table region contient toutes les régions de l’univers Pokémon.
 </p>
 <p>
-    La table type contient tous les types de pokémon existants.
+    La table type contient tous les types de Pokémon existants.
 </p>
 <p>
-    La table categorie contient toutes les catégories de pokémon existantes.
+    La table categorie contient toutes les catégories de Pokémon existantes.
 </p>
 <p>
-    La table link_region permet de lier l’id d’un pokémon avec l’id d’une région lorsque le pokémon possède une forme régionale.
+    La table link_region permet de lier l’id d’un Pokémon avec l’id d’une région lorsque le Pokémon possède une forme régionale.
 </p>
 <p>
-    Les tables link_faiblesse et link_type permettent de lier l’id d’un pokémon aux ids de ses types et de ses faiblesses.
+    Les tables link_faiblesse et link_type permettent de lier l’id d’un Pokémon aux ids de ses types et de ses faiblesses.
 </p>
 <h3>Schéma relationnel</h3>
 <p>
     Pour faire ce schéma relationnel, nous avons utilisé SQL Designer, ce qui nous a permis d’avoir un code XML que vous pouvez retrouver dans le fichier ‘bdd_schematic.xml’.
 </p>
-<img src="images/shema.png" alt="shéma relationnel"/>
+<img src="images/shema.png" alt="shéma relationnel" class="compte_rendu"/>
 <h3 id="peuplement">Peuplement de la base</h3>
 <p>
-    Pour pouvoir peupler la base nous avons utilisé un fichier json contenant les caractéristiques de 1025 pokémon, que nous avons extrait du site Tyradex via son api. Au début, nous avions testé avec quelques pokémon pour vérifier que cela fonctionnait, puis nous avons utilisé l’API de Tyradex avec un script en python qui nous a permis d’ajouter tous les autres pokémons dans la base de données de manière automatisée. Vous pouvez retrouver ce code dans le fichier peuplement.py.
+    Pour pouvoir peupler la base nous avons utilisé un fichier json contenant les caractéristiques de 1025 Pokémon, que nous avons extrait du site Tyradex via son api. Au début, nous avions testé avec quelques Pokémon pour vérifier que cela fonctionnait, puis nous avons utilisé l’API de Tyradex avec un script en python qui nous a permis d’ajouter tous les autres Pokémon dans la base de données de manière automatisée. Vous pouvez retrouver ce code dans le fichier peuplement.py.
 </p>
 <p>
-    Pour récupérer les informations des pokémons via l’API de Tyradex, nous avons utilisé la fonction get() du module python requests afin d’effectuer la requête à l’api. Par la suite, nous devons définir le type de données reçues par la requête avec l'instruction data = data.json() : data peut maintenant être parcourue comme un tableau dynamique de dictionnaires python.
+    Pour récupérer les informations des Pokémon via l’API de Tyradex, nous avons utilisé la fonction get() du module python requests afin d’effectuer la requête à l’api. Par la suite, nous devons définir le type de données reçues par la requête avec l'instruction data = data.json() : data peut maintenant être parcourue comme un tableau dynamique de dictionnaires python.
 </p>
 <h2 class="compte_rendu">IV - Développement de l'interface</h2>
 <h3>config.php</h3>
@@ -56,33 +56,33 @@
 </p>
 <h3>lister.php</h3>
 <p>
-    Lister.php permet d’afficher sous forme de tableau html les pokémon contenus dans une instance de l’objet PDOStatement $réponse. Cette variable est définie dans les autres fichiers faisant appel à lister.php pour plus de modularité. Cela nous permet de ne pas avoir à recopier son code dans chaque page où on souhaite lister des pokémon mais juste de l’appeler avec les données déjà prédéfinies.
+    Lister.php permet d’afficher sous forme de tableau html les Pokémon contenus dans une instance de l’objet PDOStatement $réponse. Cette variable est définie dans les autres fichiers faisant appel à lister.php pour plus de modularité. Cela nous permet de ne pas avoir à recopier son code dans chaque page où on souhaite lister des Pokémon mais juste de l’appeler avec les données déjà prédéfinies.
 </p>
 <p>
-    Afin d’afficher toutes les occurrences contenues dans $réponse, nous avons créé une while qui, à chaque tour de boucles, définit l’array données contenant les information du pokémon à l’aide de la méthode fetch() de la classe PDOStatement
+    Afin d’afficher toutes les occurrences contenues dans $réponse, nous avons créé une while qui, à chaque tour de boucles, définit l’array données contenant les information du Pokémon à l’aide de la méthode fetch() de la classe PDOStatement
 </p>
 <p>
-    Par la suite, on affiche les différentes caractéristiques de chaque pokémon à l’aide d’autres requêtes SQL nous permettant d’obtenir les types et faiblesses du pokémon, mais aussi ses évolutions, sa variante régionale s’il en possède une et sa génération d’apparition.
+    Par la suite, on affiche les différentes caractéristiques de chaque Pokémon à l’aide d’autres requêtes SQL nous permettant d’obtenir les types et faiblesses du Pokémon, mais aussi ses évolutions, sa variante régionale s’il en possède une et sa génération d’apparition.
 </p>
 <h3>rechercher.php</h3>
 <p>
-    Cette page permet de rechercher un pokémon dans la base de données. Pour cela de nombreux critères de recherche sont disponibles tels que la recherche par nom, par id, par type ou faiblesse, par génération ainsi que par catégorie.
+    Cette page permet de rechercher un Pokémon dans la base de données. Pour cela de nombreux critères de recherche sont disponibles tels que la recherche par nom, par id, par type ou faiblesse, par génération ainsi que par catégorie.
 </p>
 <p>
     Afin de pouvoir choisir le critère de recherche, nous avons utilisé un formulaire html avec pour méthode POST, une balise select et des balises options, nous permettant d’afficher un menu déroulant avec les différents critères de recherche ainsi qu’une balise input pour le contenu de la recherche.
 </p>
 <p>
-    Par la suite, on exécute la requête sql pour retrouver le ou les pokémons en fonction du critère et du contenu de la recherche, on l'exécute et l'attribue à $reponse puis on insère lister.php afin d’afficher le résultat de la recherche.
+    Par la suite, on exécute la requête sql pour retrouver le ou les Pokémon en fonction du critère et du contenu de la recherche, on l'exécute et l'attribue à $reponse puis on insère lister.php afin d’afficher le résultat de la recherche.
 </p>
 <h3>ajouter.php</h3>
 <p>
-    Cette page permet à l’utilisateur d’ajouter un nouveau pokémon via un formulaire html. Les balises input nous permettent de renseigner les informations du pokémon mais également d’importer des images depuis l’ordinateur du client pour ce pokémon.
+    Cette page permet à l’utilisateur d’ajouter un nouveau Pokémon via un formulaire html. Les balises input nous permettent de renseigner les informations du Pokémon mais également d’importer des images depuis l’ordinateur du client pour ce Pokémon.
 </p>
 <p>
-    Afin de renseigner les types et les faiblesses du pokémon, nous avons dû créer un menu déroulant permettant de sélectionner plusieurs occurrences. Pour cela, nous avons créé une div contenant plusieurs input de type checkbox avec pour nom types[], nous permettant d'accéder aux différents types sélectionnés via un array php qui apparaît à l’aide d’un bouton html lorsque ce dernier est survolé.
+    Afin de renseigner les types et les faiblesses du Pokémon, nous avons dû créer un menu déroulant permettant de sélectionner plusieurs occurrences. Pour cela, nous avons créé une div contenant plusieurs input de type checkbox avec pour nom types[], nous permettant d'accéder aux différents types sélectionnés via un array php qui apparaît à l’aide d’un bouton html lorsque ce dernier est survolé.
 </p>
 <p>
-    Une fois les informations renseignées et le bouton ‘Ajouter’ cliqué, des requêtes sql d’insertion sont effectuées afin d’ajouter le pokémon dans la base de données et une fois ces requêtes terminées, le nouveau pokémon est affiché en insérant lister.php .
+    Une fois les informations renseignées et le bouton ‘Ajouter’ cliqué, des requêtes sql d’insertion sont effectuées afin d’ajouter le Pokémon dans la base de données et une fois ces requêtes terminées, le nouveau Pokémon est affiché en insérant lister.php .
 </p>
 <h3>rendu.php</h3>
 <p>
@@ -92,15 +92,15 @@
 <h2 class="compte_rendu">V - Difficultés rencontrées</h2>
 <h3>Peuplement de la base de données</h3>
 <p>
-    Pour peupler notre base de données, nous devions ajouter à la main les 1025 pokémons existants ainsi que leurs images et leurs spécifications. Pour pallier cela, nous avons recherché des alternatives afin de faciliter la tâche. Nous avons donc trouvé l’API Tyradex nous permettant en une requête http de récupérer l’entièreté des pokémon et de leurs spécifications. Ainsi, nous avons utilisé cette api avec un script python afin de peupler notre base de données comme mentionné dans <a href="#peuplement" class="compte_rendu">Peuplement de la base</a>
+    Pour peupler notre base de données, nous devions ajouter à la main les 1025 Pokémon existants ainsi que leurs images et leurs spécifications. Pour pallier cela, nous avons recherché des alternatives afin de faciliter la tâche. Nous avons donc trouvé l’API Tyradex nous permettant en une requête http de récupérer l’entièreté des Pokémon et de leurs spécifications. Ainsi, nous avons utilisé cette api avec un script python afin de peupler notre base de données comme mentionné dans <a href="#peuplement" class="compte_rendu">Peuplement de la base</a>
 </p>
 <h3>Problème de caractères spéciaux</h3>
 <p>
-    Lors du peuplement de la base, certaines erreurs sont apparues lors de l’insertion des informations de pokémons sur la base de données. Ce problème était lié au nom de certains pokémons qui contiennent des caractères non supportés par la base de données. Nous avons donc créé un fonction tri(nom:str)->str, permettant de pallier ce problème.
+    Lors du peuplement de la base, certaines erreurs sont apparues lors de l’insertion des informations de Pokémon sur la base de données. Ce problème était lié au nom de certains Pokémon qui contiennent des caractères non supportés par la base de données. Nous avons donc créé un fonction tri(nom:str)->str, permettant de pallier ce problème.
 </p>
 <h3>Chargement des images</h3>
 <p>
-    Lorsqu’on va sur le site, on s’est rendu compte que les images prenaient beaucoup de temps à apparaître. En effet, il y a près de 2030 images de pokémons et ces dernières étaient stockées sur le github de l’API Tyradex. Par conséquent, le chargement des images était plutôt lent. Pour remédier à cela, nous avons téléchargé les images puis les avons importées dans le dossier images du site afin d’accélérer le temps de chargement de ces dernières.
+    Lorsqu’on va sur le site, on s’est rendu compte que les images prenaient beaucoup de temps à apparaître. En effet, il y a près de 2030 images de Pokémon et ces dernières étaient stockées sur le github de l’API Tyradex. Par conséquent, le chargement des images était plutôt lent. Pour remédier à cela, nous avons téléchargé les images puis les avons importées dans le dossier images du site afin d’accélérer le temps de chargement de ces dernières.
 </p>
 <p>
     Dorénavant, le site met environ 5 secondes à charger les 2000 images au lieu d’une quinzaine.
