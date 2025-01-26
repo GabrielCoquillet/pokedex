@@ -13,56 +13,38 @@
 <?php include("config.php");
 
 if (isset($_GET['a'])){
-    if ($_GET['a'] == "lister"){
-        echo '<!-- menu -->
-<div class="menu">
-    <!-- titre -->
-    <a class="logo" href="index.php">Pokedex</a>
-    <div class="menu-droit">
-        <a class="actif" href="index.php?a=lister">Lister</a>
-        <a href="index.php?a=rechercher">Rechercher</a>
-        <a href="index.php?a=ajouter">Ajouter</a>
-        <a href="index.php?a=rendu">Compte rendu</a>
-    </div>
-</div>';
-    }elseif ($_GET['a'] == "ajouter"){
-        echo '<!-- menu -->
-<div class="menu">
-    <!-- titre -->
-    <a class="logo" href="index.php">Pokedex</a>
-    <div class="menu-droit">
-        <a href="index.php?a=lister">Lister</a>
-        <a href="index.php?a=rechercher">Rechercher</a>
-        <a class="actif" href="index.php?a=ajouter">Ajouter</a>
-        <a href="index.php?a=rendu">Compte rendu</a>
-    </div>
-</div>';
+    $class_lister = '';
+    $class_ajouter = '';
+    $class_rechercher = '';
+    $class_rendu = '';
+    if ($_GET['a'] == "ajouter"){
+        $class_ajouter = 'class="actif"';
     }elseif ($_GET['a'] == "rendu"){
-        echo '<!-- menu -->
-<div class="menu">
-    <!-- titre -->
-    <a class="logo" href="index.php">Pokedex</a>
-    <div class="menu-droit">
-        <a href="index.php?a=lister">Lister</a>
-        <a href="index.php?a=rechercher">Rechercher</a>
-        <a href="index.php?a=ajouter">Ajouter</a>
-        <a class="actif" href="index.php?a=rendu">Compte rendu</a>
-    </div>
-</div>';
+        $class_rendu = 'class="actif"';
     }elseif ($_GET['a'] == "rechercher"){
-        echo '<!-- menu -->
-<div class="menu">
-    <!-- titre -->
-    <a class="logo" href="index.php">Pokedex</a>
-    <div class="menu-droit">
-        <a href="index.php?a=lister">Lister</a>
-        <a class="actif" href="index.php?a=rechercher">Rechercher</a>
-        <a href="index.php?a=ajouter">Ajouter</a>
-        <a href="index.php?a=rendu">Compte rendu</a>
-    </div>
-</div>';
+        $class_rechercher = 'class="actif"';
+    }else{
+        $class_lister = 'class="actif"';
     }
 }
+else{
+    $class_ajouter = '';
+    $class_rechercher = '';
+    $class_rendu = '';
+    $class_lister = 'class="actif"';
+}
+
+echo '<!-- menu -->
+<div class="menu">
+    <!-- titre -->
+    <a class="logo" href="index.php">Pokedex</a>
+    <div class="menu-droit">
+        <a '.$class_lister.' href="index.php?a=lister">Lister</a>
+        <a '.$class_rechercher.' href="index.php?a=rechercher">Rechercher</a>
+        <a '.$class_ajouter.' href="index.php?a=ajouter">Ajouter</a>
+        <a '.$class_rendu.' href="index.php?a=rendu">Compte rendu</a>
+    </div>
+</div>';
 ?>
 
 
@@ -86,7 +68,8 @@ if (isset($_GET['a'])){
         // Module non specifié ou invalide ? On affiche la page d'accueil !
     }
     else {
-        header('Location: index.php?a=lister');
+        $reponse = $bdd->query('SELECT * FROM pokemon');
+        include 'lister.php';
     }
     ?>
 </div>
