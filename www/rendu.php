@@ -1,13 +1,13 @@
 <h1>Compte rendu</h1>
-<h2>Objectif</h2>
+<h2 class="compte_rendu">Objectif</h2>
 <p>
     Ce projet a pour but de concevoir une interface web fonctionnelle permettant de gérer une base de données de Pokémon. Sur ce site il sera possible de lister, rechercher un pokémon à l’aide de son prénom ou de ses caractéristiques et d’ajouter un pokémon. De plus, nous l’avons hébergé, pour pouvoir y accéder vous pouvez aller sur le site pokedex.gcoquillet.fr .
 </p>
-<h2>Outils</h2>
+<h2 class="compte_rendu">Outils</h2>
 <p>
     Pour réaliser ce projet, nous avons utilisé le langage de balisage HTML/CSS pour structurer et styliser l'interface utilisateur, le langage de programmation PHP pour la gestion des interactions entre l'utilisateur et le serveur, le langage de requête structurée SQL pour manipuler la base de données, le logiciel UwAmp comme environnement de développement local (serveur Apache/MySQL) et enfin le site GitHub pour collaborer entre nous.
 </p>
-<h2>Base de données</h2>
+<h2 class="compte_rendu">Base de données</h2>
 <h3>Création de la base de données</h3>
 <p>
     La base de données que nous avons créée contient 10 tables : pokemon, famille, link_generation, generation, link_region, region, link_type, type, link_faiblesse et categorie.
@@ -20,7 +20,7 @@
 <p>
     Pour pouvoir peupler la base, nous avons utilisé un fichier json contenant les caractéristiques de 1025 pokémon, que nous avions extrait du site Tyradex via son api. Au début, nous avions testé avec quelques pokémon pour vérifier que cela fonctionnait, puis nous avons utilisé l’API de Tyradex avec un script en python qui nous a permis d’ajouter tous les autres dans la base de données. Vous pouvez retrouver ce code dans le fichier peuplement.py .
 </p>
-<h2>Développement de l'interface</h2>
+<h2 class="compte_rendu">Développement de l'interface</h2>
 <h3>config.php</h3>
 <p>
     Ce fichier permet de se connecter à la base de données, à l’aide d’un identifiant et d’un mot de passe déjà défini dans des variables. De plus, il est possible d’afficher les erreurs (en changeant le 0 en 1 ou 1 en 0 dans “error_reporting()”), et les variables et les requêtes utilisées (en appelant la fonction debug()).
@@ -53,7 +53,7 @@
     Ce fichier permet d’afficher le compte rendu directement dans le site. Cela permettra à tous les utilisateurs de ce site de comprendre comment on a procédé à la création de ce site.
 </p>
 
-<h2>Difficultés rencontrées</h2>
+<h2 class="compte_rendu">Difficultés rencontrées</h2>
 <h3>API</h3>
 <p> Pour peupler notre base de données, nous avions besoin d’une API, mais on ne savait pas  comment l’utiliser donc on a dû faire des recherches pour trouver une API et pour comprendre comment ça fonctionne.
 </p>
