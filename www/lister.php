@@ -3,7 +3,7 @@ set_time_limit(300);
 if (isset($_POST['delete'])) {
     $requete = $bdd->prepare('DELETE FROM pokemon WHERE id=:id');
     $requete->bindValue(':id', $_POST['delete']);
-    $requete->execute();
+    //$requete->execute();
     $reponse = $bdd->query("SELECT * FROM pokemon");
 }
 
@@ -34,9 +34,9 @@ while ($donnees = $reponse->fetch()){
     //affichage des sprites du pokémon (regular et shiny)
     echo '<th>';
     echo '<img src="'.$donnees['path_to_image'].'" width="150px">';
-	if (is_file($donnees['path_to_image_shiny'])){
-    echo '<img src="'.$donnees['path_to_image_shiny'].'" width="150px">';
-	}
+    if (is_file($donnees['path_to_image_shiny'])){
+        echo '<img src="'.$donnees['path_to_image_shiny'].'" width="150px">';
+    }
     echo '</th>';
 
     //affichage de l'id
@@ -119,10 +119,7 @@ while ($donnees = $reponse->fetch()){
     echo '</th>';
 
     //affichage de la génération d'apparition du pokémon
-    $gen = $bdd->prepare('SELECT id_generation FROM link_generation WHERE id_pokemon=:id_pokemon');
-    $gen->bindValue(':id_pokemon', $donnees['id']);
-    $gen->execute();
-    echo "<th><strong> génération ".$gen->fetch()[0]."</strong></th>";
+    echo "<th><strong> Génération ".$donnees['generation']."</strong></th>";
 
     //affichage des évolutions...
     $familles = $bdd->prepare('SELECT * FROM famille WHERE id_pokemon_base=:id OR id_pokemon_level_2=:id OR id_pokemon_level_3=:id');
