@@ -101,6 +101,8 @@ if (isset($_FILES['image_poke']) && $_FILES['image_poke']['error'] === 0 && isse
     move_uploaded_file($_FILES['image_poke_shiny']['tmp_name'], $new_path_shiny);
 
 
+}elseif(isset($_FILES['image_poke']) && $_FILES['image_poke']['error'] !== 0 or isset($_FILES['image_poke_shiny']) && $_FILES['image_poke_shiny']['error'] !== 0) {
+    echo 'Une erreur est survenue lors de l\'upload';
 }
 if (isset($_POST['nom']) && isset($_POST['categorie']) && isset($_POST['generation']) && isset($_POST['taille']) && isset($_POST['poids']) && isset($_POST['pv']) && isset($_POST['attack']) && isset($_POST['def']) && isset($_POST['vit']) && isset($_POST['types']) && isset($_POST['faiblesses'])) {
     $categorie = $bdd->prepare("SELECT id FROM categorie WHERE nom=:nom");
@@ -136,8 +138,6 @@ if (isset($_POST['nom']) && isset($_POST['categorie']) && isset($_POST['generati
     $requete->bindValue(':id_poke', $id_new_poke);
     $requete->bindValue(':id_generation', $_POST['generation']);
     $requete->execute();
-    //debug($_POST['types']);
-    //debug($_POST['faiblesses']);
 
     foreach ($_POST['types'] as $type) {
         $id_type = $bdd->prepare("SELECT id FROM type WHERE nom=:nom");
