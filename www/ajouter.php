@@ -156,7 +156,6 @@ if (isset($_POST['nom']) && isset($_POST['categorie']) && isset($_POST['generati
         $id_type->bindValue(':nom', $type);
         $id_type->execute();
         $id_type = $id_type->fetch()[0];
-        echo $id_type;
 
         $requete = $bdd->prepare("INSERT INTO link_faiblesse(id_type, id_pokemon) VALUES (:id_type, :id_pokemon)");
         $requete->bindValue(':id_type', $id_type);
@@ -164,5 +163,10 @@ if (isset($_POST['nom']) && isset($_POST['categorie']) && isset($_POST['generati
         $requete->execute();
 
     }
+    $requete = 'SELECT * FROM pokemon WHERE id ='.$id_new_poke.' ORDER BY nom ASC';
+    $reponse = $bdd->query($requete);
+    include 'lister.php';
 
 }
+
+

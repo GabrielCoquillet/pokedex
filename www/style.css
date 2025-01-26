@@ -112,7 +112,7 @@ button{
 .recherche{
 	width:70%;
 	text-align:left;
-	background-color: #e3350d;
+	background-color: #30a7d7;
 	border-radius: 20px;
 	margin: auto;
 	font-size:10px;
@@ -126,7 +126,7 @@ select.search{
 	height: 25px;
 	color: white;
 	font-family: nunito;
-	background-color: #e3350d;
+	background-color: #30a7d7;
 }
 
 .search{
