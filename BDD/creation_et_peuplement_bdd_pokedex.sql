@@ -19,6 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `pokedex`
 --
+DROP DATABASE IF EXISTS pokedex;
 CREATE DATABASE pokedex;
 USE pokedex;
 

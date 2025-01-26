@@ -87,23 +87,6 @@ def type(data):
         conn.commit()
         i += 1
 
-def generation(data):
-    '''
-        :param data: variable contenant toutes les données de l'api
-        peuple la table generation de la base de données
-    '''
-    # on récupere dans un ensemble toutes les générations existantes
-    s = set()
-    for i in range(1,1026):
-        if data[i]['generation'] not in s:
-            s.add(data[i]['generation'])
-
-    for elt in s:
-        # insertion de chaque génération existante dans la table generation
-        sql = "INSERT INTO generation VALUES (%s, %s)"
-        cursor.execute(sql, (elt, f"generation {elt}"))
-        conn.commit()
-
 def region(data):
     '''
         :param data: variable contenant toutes les données de l'api
@@ -174,18 +157,6 @@ def link_faiblesse(data):
                 cursor.execute(sql, (data[i]['pokedex_id'], id_type))
                 conn.commit()
 
-def link_generation(data):
-    '''
-        :param data: variable contenant toutes les données de l'api
-        peuple la table link_generation de la base de données
-    '''
-    for i in range(1,1026):
-        #insertion dans la tables link_generation
-        sql = "INSERT INTO link_generation(id_generation,id_pokemon) VALUES (%s, %s)"
-        cursor.execute(sql, (data[i]['generation'], data[i]['pokedex_id']))
-        conn.commit()
-
-
 def link_region(data):
     '''
         :param data: variable contenant toutes les données de l'api
@@ -224,13 +195,20 @@ def link_type(data):
 
 #Code principal, appel de toutes les fonctions
 with conn.cursor() as cursor:
-    #generation(data)
     type(data)
+    print("type ok")
     categorie(data)
+    print("categorie ok")
     pokemon(data)
+    print("pokemon ok")
     region(data)
+    print("region ok")
     famille(data)
+    print("famille ok")
     link_type(data)
+    print("link_type ok")
     link_region(data)
+    print("link_region ok")
     link_faiblesse(data)
-    #link_generation(data)
+    print("link_faiblesse ok")
+    print("Peuplement terminé")
